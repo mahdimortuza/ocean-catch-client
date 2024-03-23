@@ -1,7 +1,5 @@
-import { Spinner } from "@nextui-org/react";
-
 const Loader = () => {
-  return <Spinner />;
+  return <div>Loading</div>;
 };
 
 export default Loader;

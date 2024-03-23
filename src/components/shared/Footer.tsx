@@ -1,23 +1,24 @@
 import Link from "next/link";
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="h-full w-full max-w-[1024px] px-[24px] mx-auto py-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4 place-content-center gap-[30px] lg:gap-[120px]">
+    <footer className="h-full w-full max-w-[1300px] px-5 mx-auto py-10">
+      <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 place-content-center gap-[30px] lg:gap-[120px]">
         {/* col-1  */}
         <div>
-          <h1 className="text-2xl font-bold text-red-500">OceanCatch</h1>
-
-          <div className="flex gap-2 mt-11">
+          <span className="text-red-500">Logo</span>
+          <p className="text-gray font-inter mt-5 text-base">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Commodo
+            libero viverra dapibus odio sit malesuada in quis. Arcu tristique
+            elementum viverra integer id.
+          </p>
+          <div className="flex gap-4 mt-11">
             <a href="/">
               <FaFacebook className=" text-tangerine bg-light-tangerine rounded-full p-2 w-[40px] h-[40px]" />
             </a>
             <a href="/">
               <FaTwitter className=" text-tangerine bg-light-tangerine rounded-full p-2 w-[40px] h-[40px]" />
-            </a>
-            <a href="/">
-              <FaLinkedin className=" text-tangerine bg-light-tangerine rounded-full p-2 w-[40px] h-[40px]" />
             </a>
             <a href="/">
               <FaInstagram className=" text-tangerine bg-light-tangerine rounded-full p-2 w-[40px] h-[40px]" />
