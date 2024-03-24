@@ -1,13 +1,13 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -28,6 +28,20 @@ const config = {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
+
+        "theme-primary": "hsl(var(theme-primary))",
+        "theme-text": "hsl(var(theme-text))",
+        "theme-heading": "hsl(var(theme-heading))",
+        "theme-light": "hsl(var(theme-light))",
+        "heme-border": "hsl(var(heme-border))",
+        "theme-line": "hsl(var(theme-line))",
+        "bg-primary": "hsl(var(bg-primary))",
+        "bg-secondary": "hsl(var(bg-secondary))",
+
+        tangerine: "hsl(var(--tangerine))",
+        gray: "hsl(var(--gray))",
+        "light-tangerine": "hsl(var(--light-tangerine))",
+
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
@@ -75,6 +89,6 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;

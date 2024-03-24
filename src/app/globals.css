@@ -16,6 +16,15 @@
     --primary: 0 0% 9%;
     --primary-foreground: 0 0% 98%;
 
+    --theme-primary: 198, 100%, 40%;
+    --theme-text: 0, 0%, 40%;
+    --theme-heading: 0, 0%, 13%;
+    --theme-light: 0, 0%, 53%;
+    --theme-border: 0, 0%, 93%;
+    --theme-line: 0, 0%, 85%;
+    --bg-primary: 240, 50%, 98%;
+    --bg-secondary: 195, 50%, 97%;
+
     --secondary: 0 0% 96.1%;
     --secondary-foreground: 0 0% 9%;
 
