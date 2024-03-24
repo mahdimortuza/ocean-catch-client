@@ -30,7 +30,7 @@ const Navbar = () => {
 
         <div className="flex gap-4 mr-5 md:mr-16">
           <Link href="/">
-            <User className=" " />
+            <User className="" />
           </Link>
           <Link href="/">
             <Heart />
