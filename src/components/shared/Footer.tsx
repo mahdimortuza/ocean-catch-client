@@ -3,11 +3,11 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="h-full w-full max-w-[1300px] px-5 mx-auto py-10">
+    <footer className="h-full w-full max-w-[1300px] px-[15px] mx-auto py-10">
       <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 place-content-center gap-[30px] lg:gap-[120px]">
         {/* col-1  */}
         <div>
-          <span className="text-red-500">Logo</span>
+          <span className="text-red-500">OceanCatch</span>
           <p className="text-gray font-inter mt-5 text-base">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Commodo
             libero viverra dapibus odio sit malesuada in quis. Arcu tristique

@@ -1,4 +1,5 @@
 "use client";
+import { Heart, ShoppingBag, User } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
@@ -23,9 +24,21 @@ const Navbar = () => {
 
   return (
     <header className="bg-[#F3F9FB] h-14 py-8">
-      <div className="h-full w-full max-w-[1300px] px-5 mx-auto flex justify-between items-center sticky top-0">
+      <div className=" z-10 h-full w-full max-w-[1300px] px-[15px] mx-auto flex justify-between items-center sticky top-0">
         {/* Logo */}
         <h1 className="w-full text-3xl font-bold text-[#00df9a]">OceanCatch</h1>
+
+        <div className="flex gap-4 mr-5 md:mr-16">
+          <Link href="/">
+            <User className=" " />
+          </Link>
+          <Link href="/">
+            <Heart />
+          </Link>
+          <Link href="/">
+            <ShoppingBag className="" />
+          </Link>
+        </div>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex">
@@ -43,7 +56,6 @@ const Navbar = () => {
         <div onClick={handleNav} className="block md:hidden">
           {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
         </div>
-
         {/* Mobile Navigation Menu */}
         <ul
           className={
