@@ -1,5 +1,7 @@
+import Container from "@/components/Container";
+
 const FlashSaleSection = () => {
-  return <div>FlashSaleSection</div>;
+  return <Container>FlashSaleSection</Container>;
 };
 
 export default FlashSaleSection;

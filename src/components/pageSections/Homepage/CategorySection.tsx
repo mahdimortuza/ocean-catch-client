@@ -1,5 +1,7 @@
+import Container from "@/components/Container";
+
 const CategorySection = () => {
-  return <div>CategorySection</div>;
+  return <Container>CategorySection</Container>;
 };
 
 export default CategorySection;

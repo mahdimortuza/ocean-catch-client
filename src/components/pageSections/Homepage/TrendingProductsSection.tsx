@@ -1,5 +1,7 @@
+import Container from "@/components/Container";
+
 const TrendingProductsSection = () => {
-  return <div>TrendingProductsSection</div>;
+  return <Container>TrendingProductsSection</Container>;
 };
 
 export default TrendingProductsSection;
