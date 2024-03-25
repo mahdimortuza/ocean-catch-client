@@ -10,7 +10,7 @@ const SectionTitle = ({ title, highlight, link }: TProps) => {
       <h4 className="text-[#666666] text-base md:text-xl ">
         {title}
         <span className="text-[#008ECC] text-xl md:text-2xl font-semibold">
-          {highlight}
+          {""} {highlight}
         </span>
       </h4>
       <Link href={link}>
