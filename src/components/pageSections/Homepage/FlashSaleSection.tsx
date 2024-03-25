@@ -7,7 +7,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 
-type TProduct = {
+export type TProduct = {
   title: string;
   image: string;
   optImage1: string;
