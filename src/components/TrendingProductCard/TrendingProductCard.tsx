@@ -1,3 +1,4 @@
+import { Plus } from "lucide-react";
 import Image from "next/image";
 
 interface TProductProps {
@@ -8,9 +9,8 @@ interface TProductProps {
 }
 
 const TrendingProductCard = ({ image, title, offer, price }: TProductProps) => {
-  console.log(price);
   return (
-    <div className="border-[2px] border-[#D9D9D9]  hover:border-[#008ECC] rounded-xl">
+    <div className="relative h-[300px]  border-[2px] border-[#D9D9D9]   hover:border-[#008ECC] rounded-xl">
       <Image
         className="rounded-t-xl mx-auto"
         src={image}
@@ -19,13 +19,20 @@ const TrendingProductCard = ({ image, title, offer, price }: TProductProps) => {
         height={100}
       />
       {offer ? (
-        <h5 className="text-base font-[700]  text-red-500 bg-red-100 w-[80px] py-1 rounded-3xl my-2 text-center mx-auto">
+        <h5 className=" absolute top-2 right-2 text-base font-[700]  text-white bg-red-500 w-[80px] py-1 rounded-3xl text-center  ">
           {offer}%
         </h5>
       ) : (
         ""
       )}
-      <h1 className="text-base font-[500] mt-3 text-center">{title}</h1>
+
+      <div className="  px-2 flex justify-between items-center">
+        <div>
+          <h1 className="text-xl font-[600] mt-3">{title}</h1>
+          <h3>{price}</h3>
+        </div>
+        <Plus className=" " />
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import Container from "@/components/Container";
-import FlashSellProductCard from "@/components/FlashSellProductCard/FlashSellProductCard";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import TrendingProductCard from "@/components/TrendingProductCard/TrendingProductCard";
 import {
   Carousel,
   CarouselContent,
@@ -26,7 +26,7 @@ const TrendingProductsSection = async () => {
                 key={product._id}
                 className="basis-1/1 md:basis-1/2 lg:basis-1/6"
               >
-                <FlashSellProductCard
+                <TrendingProductCard
                   image={product.image}
                   title={product.title}
                   offer={product.offer}
