@@ -24,7 +24,7 @@ export type TProduct = {
 };
 
 const FlashSaleSection = async () => {
-  const res = await fetch("http://localhost:5000/api/v1/products/", {
+  const res = await fetch(`http://localhost:5000/api/v1/products`, {
     next: {
       revalidate: 30,
     },
@@ -82,6 +82,7 @@ const FlashSaleSection = async () => {
                       image={product.image}
                       title={product.title}
                       offer={product.offer}
+                      productId={product._id}
                     />{" "}
                   </CarouselItem>
                 ))}
