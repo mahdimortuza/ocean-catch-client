@@ -9,7 +9,6 @@ const ProductDetailPage = async ({ params }: any) => {
   );
   const product = await res.json();
   const { data: productDetail } = product;
-  console.log(productDetail);
   return (
     <Container>
       <h1>ProductDetailPage{productDetail.title} </h1>
