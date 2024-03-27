@@ -32,6 +32,7 @@ const TrendingProductsSection = async () => {
                   offer={product.offer}
                   price={product.price}
                   productId={product._id}
+                  ratings={product.ratings}
                 />
               </CarouselItem>
             ))}
