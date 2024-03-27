@@ -15,9 +15,40 @@ const TrendingProductsSection = async () => {
     },
   });
   const { data: products } = await res.json();
+
+  const categories = [
+    {
+      name: "Salt water fish",
+      key: "Salt water fish",
+    },
+    {
+      name: "Sweet water fish",
+      key: "Sweet water fish",
+    },
+    {
+      name: "Lobster and Shrimps",
+      key: "Lobster and Shrimps",
+    },
+    {
+      name: "Squid and Crabs",
+      key: "Squid and Crabs",
+    },
+    {
+      name: "Small & Big Fish",
+      key: "Small & Big Fish",
+    },
+    {
+      name: "Caviar and Insects",
+      key: "Caviar and Insects",
+    },
+  ];
+
   return (
     <Container className="py-10">
       <SectionTitle title="Shop our" highlight="Trending products" link="/" />
+      <div className="pt-5">
+        <h1 className="py-3">Filter products</h1>
+      </div>
       <div className="py-10">
         <Carousel>
           <CarouselContent>
