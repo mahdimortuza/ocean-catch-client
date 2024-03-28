@@ -5,9 +5,9 @@ import Link from "next/link";
 import { TProduct } from "../pageSections/Homepage/FlashSaleSection";
 
 const ProductCard = ({ item }: { item: TProduct }) => {
-  const { _id, title, image, price, ratings, offer } = item;
+  const { _id: productId, title, image, price, ratings, offer } = item;
   return (
-    <Link href={`/products/${_id}`}>
+    <Link href={`/products/${productId}`}>
       <div className="relative  marker: flex flex-col  justify-between border-[2px] border-[#D9D9D9]   hover:border-[#008ECC] rounded-xl">
         <Image
           className="rounded-t-xl mx-auto"
@@ -28,7 +28,7 @@ const ProductCard = ({ item }: { item: TProduct }) => {
           <div>
             <h3 className="text-xl font-[600] mt-3">${price}</h3>
             <h1>{title}</h1>
-            <Rating style={{ maxWidth: 250 }} value={ratings} readOnly />
+            <Rating style={{ maxWidth: 100 }} value={ratings} readOnly />
           </div>
         </div>
       </div>

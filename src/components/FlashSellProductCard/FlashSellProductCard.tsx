@@ -15,7 +15,7 @@ const FlashSellProductCard = ({
   productId,
 }: TFlashSellProps) => {
   return (
-    <Link href={`/${productId}`}>
+    <Link href={`/products/${productId}`}>
       <div className="flexborder-[2px] border-[#D9D9D9]  hover:border-[#008ECC] rounded-xl">
         <Image
           className="rounded-t-xl mx-auto"

@@ -21,8 +21,8 @@ const TrendingProductCard = ({
   ratings,
 }: TProduct) => {
   return (
-    <Link href={`/${productId}`}>
-      <div className="relative h-[300px] flex flex-col  justify-between border-[2px] border-[#D9D9D9]   hover:border-[#008ECC] rounded-xl">
+    <Link href={`/products/${productId}`}>
+      <div className="relative  flex flex-col  justify-between border-[2px] border-[#D9D9D9]   hover:border-[#008ECC] rounded-xl">
         <Image
           className="rounded-t-xl mx-auto"
           src={image}
@@ -42,7 +42,7 @@ const TrendingProductCard = ({
           <div>
             <h3 className="text-xl font-[600] mt-3">${price}</h3>
             <h1>{title}</h1>
-            <Rating style={{ maxWidth: 250 }} value={ratings} readOnly />
+            <Rating style={{ maxWidth: 100 }} value={ratings} readOnly />
           </div>
         </div>
       </div>
