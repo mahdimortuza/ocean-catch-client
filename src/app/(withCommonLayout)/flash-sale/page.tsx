@@ -5,9 +5,12 @@ import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import { TProduct } from "@/components/pageSections/Homepage/FlashSaleSection";
 
 const FlashSalePage = async () => {
-  const res = await fetch(`http://localhost:5000/api/v1/products`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `https://ocean-catch-server.vercel.app/api/v1/products`,
+    {
+      cache: "no-store",
+    }
+  );
   const { data: products } = await res.json();
   return (
     <Container className="py-10">

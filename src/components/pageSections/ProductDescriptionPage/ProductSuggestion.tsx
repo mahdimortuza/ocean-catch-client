@@ -8,7 +8,9 @@ import {
 import { TProduct } from "../Homepage/FlashSaleSection";
 
 const ProductSuggestion = async ({ category }: { category: string }) => {
-  const res = await fetch(`http://localhost:5000/api/v1/products/`);
+  const res = await fetch(
+    `https://ocean-catch-server.vercel.app/api/v1/products/`
+  );
   const product = await res.json();
   const { data } = product;
 

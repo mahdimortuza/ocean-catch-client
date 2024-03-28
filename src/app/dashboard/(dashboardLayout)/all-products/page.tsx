@@ -9,11 +9,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 const DashboardAllProducts = async () => {
-  const res = await fetch("http://localhost:5000/api/v1/products/", {
-    next: {
-      revalidate: 30,
-    },
-  });
+  const res = await fetch(
+    "https://ocean-catch-server.vercel.app/api/v1/products/",
+    {
+      next: {
+        revalidate: 30,
+      },
+    }
+  );
   const { data: products } = await res.json();
   return (
     <div className="px-10">
