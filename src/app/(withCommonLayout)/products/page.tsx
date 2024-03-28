@@ -6,9 +6,7 @@ import { TProduct } from "@/components/pageSections/Homepage/FlashSaleSection";
 
 const AllProductsPage = async () => {
   const res = await fetch("http://localhost:5000/api/v1/products/", {
-    next: {
-      revalidate: 30,
-    },
+    cache: "no-store",
   });
   const { data: products } = await res.json();
 

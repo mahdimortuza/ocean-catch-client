@@ -1,11 +1,27 @@
 import Container from "@/components/Container";
+import { TProduct } from "@/components/pageSections/Homepage/FlashSaleSection";
 import ProductSuggestion from "@/components/pageSections/ProductDescriptionPage/ProductSuggestion";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { Check, Combine, Truck, X } from "lucide-react";
 import Image from "next/image";
 
-const ProductDetailPage = async ({ params }: any) => {
+interface ProductId {
+  params: {
+    productId: string;
+  };
+}
+
+export const generateStaticParams = async () => {
+  const res = await fetch("http://localhost:5000/api/v1/products");
+  const { data: products } = await res.json();
+
+  return products.slice(0, 10).map((product: TProduct) => ({
+    productId: product._id,
+  }));
+};
+
+const ProductDetailPage = async ({ params }: ProductId) => {
   const res = await fetch(
     `http://localhost:5000/api/v1/products/${params.productId}`
   );
