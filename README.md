@@ -24,3 +24,5 @@ bun dev
 ```
 
 Open with your browser to see the result.
+
+### Check the live deployed link : [https://ocean-catch-client.vercel.app/](https://ocean-catch-client.vercel.app/)
