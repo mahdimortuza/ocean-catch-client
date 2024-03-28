@@ -6,6 +6,14 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+import { Button } from "@/components/ui/button";
+import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { TProduct } from "./FlashSaleSection";
 
 const TrendingProductsSection = async () => {
@@ -47,7 +55,18 @@ const TrendingProductsSection = async () => {
     <Container className="py-10">
       <SectionTitle title="Shop our" highlight="Trending products" link="/" />
       <div className="pt-5">
-        <h1 className="py-3">Filter products</h1>
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <Button>Filter by category</Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            {categories.map((category) => (
+              <DropdownMenuItem key={category.key}>
+                {category.name}
+              </DropdownMenuItem>
+            ))}{" "}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
       <div className="py-10">
         <Carousel>
