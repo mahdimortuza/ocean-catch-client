@@ -15,7 +15,6 @@ const DashboardAllProducts = async () => {
     },
   });
   const { data: products } = await res.json();
-  console.log(products);
   return (
     <div className="px-10">
       <Table>
@@ -24,15 +23,15 @@ const DashboardAllProducts = async () => {
           <TableRow>
             <TableHead>SL/NO</TableHead>
             <TableHead>Image</TableHead>
-            <TableHead>Service name</TableHead>
-            <TableHead>Edit service</TableHead>
-            <TableHead className="text">Delete</TableHead>
+            <TableHead>Product name</TableHead>
+            <TableHead>Category</TableHead>
+            <TableHead>Price</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {products.map((product: TProduct) => (
+          {products.map((product: TProduct, index: number) => (
             <TableRow key={product._id}>
-              <DataTable product={product} />
+              <DataTable product={product} index={index} />
             </TableRow>
           ))}
         </TableBody>
