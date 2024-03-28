@@ -1,5 +1,7 @@
 import Container from "@/components/Container";
 import ProductCard from "@/components/ProductCard/ProductCard";
+import ProductsSidebar from "@/components/ProductsSidebar/ProductsSidebar";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import { TProduct } from "@/components/pageSections/Homepage/FlashSaleSection";
 
 const AllProductsPage = async () => {
@@ -12,11 +14,14 @@ const AllProductsPage = async () => {
 
   return (
     <Container className="py-10">
-      <h1>All Products of OceanCatch</h1>
-      <div className="">
-      {products.map((product: TProduct) => (
-        <ProductCard key={product._id} item={product} />
-      ))}
+      <SectionTitle title="All Products of" highlight=" OceanCatch" link="" />
+      <div className="flex">
+        <ProductsSidebar />
+        <div className=" py-10 grid grid-cols-6  gap-2">
+          {products.map((product: TProduct) => (
+            <ProductCard key={product._id} item={product} />
+          ))}
+        </div>
       </div>
     </Container>
   );

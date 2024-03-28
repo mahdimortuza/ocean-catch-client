@@ -13,12 +13,16 @@ const SectionTitle = ({ title, highlight, link }: TProps) => {
           {""} {highlight}
         </span>
       </h4>
-      <Link href={link}>
-        <Button variant="ghost" className="flex items-center gap-2">
-          <span className="text-base">View All</span>
-          <ChevronsRight className="text-[#008ECC]" />
-        </Button>
-      </Link>
+      {link ? (
+        <Link href={link}>
+          <Button variant="ghost" className="flex items-center gap-2">
+            <span className="text-base">View All</span>
+            <ChevronsRight className="text-[#008ECC]" />
+          </Button>
+        </Link>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
