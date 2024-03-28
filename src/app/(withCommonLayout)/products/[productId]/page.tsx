@@ -1,4 +1,5 @@
 import Container from "@/components/Container";
+import ProductSuggestion from "@/components/pageSections/ProductDescriptionPage/ProductSuggestion";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { Check, Combine, Truck, X } from "lucide-react";
@@ -97,6 +98,7 @@ const ProductDetailPage = async ({ params }: any) => {
           <p className="mt-5">About product: {description}</p>
         </div>
       </div>
+      <ProductSuggestion category={category} />
     </Container>
   );
 };
