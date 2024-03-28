@@ -19,7 +19,7 @@ const Navbar = () => {
     { id: 2, text: "Shop", link: "/products" },
     { id: 3, text: "FlashSale", link: "/" },
     { id: 4, text: "About", link: "/" },
-    { id: 5, text: "Contact", link: "/" },
+    { id: 5, text: "Contact", link: "/dashboard/all-products" },
   ];
 
   return (
