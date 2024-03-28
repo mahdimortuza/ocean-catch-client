@@ -35,27 +35,39 @@ const ProductDetailPage = async ({ params }: any) => {
             className="border border-x border-[#DEE2E7] rounded-lg"
           />
           <div className="flex mt-4 gap-5 p-2 ">
-            <Image
-              src={optImage1}
-              width={60}
-              height={60}
-              alt="opt image"
-              className="p-1 border border-x border-[#DEE2E7] rounded-lg"
-            />
-            <Image
-              src={optImage2}
-              width={60}
-              height={60}
-              alt="opt image"
-              className="p-1 border border-x border-[#DEE2E7] rounded-lg"
-            />
-            <Image
-              src={optImage3}
-              width={60}
-              height={60}
-              alt="opt image"
-              className="p-1 border border-x border-[#DEE2E7] rounded-lg"
-            />
+            {optImage1 ? (
+              <Image
+                src={optImage1}
+                width={60}
+                height={60}
+                alt="opt image"
+                className="p-1 border border-x border-[#DEE2E7] rounded-lg"
+              />
+            ) : (
+              ""
+            )}
+            {optImage2 ? (
+              <Image
+                src={optImage2}
+                width={60}
+                height={60}
+                alt="opt image"
+                className="p-1 border border-x border-[#DEE2E7] rounded-lg"
+              />
+            ) : (
+              ""
+            )}
+            {optImage3 ? (
+              <Image
+                src={optImage3}
+                width={60}
+                height={60}
+                alt="opt image"
+                className="p-1 border border-x border-[#DEE2E7] rounded-lg"
+              />
+            ) : (
+              " "
+            )}
           </div>
         </div>
         <div>
