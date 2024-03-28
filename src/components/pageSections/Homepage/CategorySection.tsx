@@ -42,7 +42,7 @@ const CategorySection = () => {
       <SectionTitle
         title="Shop from top categories"
         highlight="top categories"
-        link="/"
+        link="/products"
       />
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-5 mt-10 w-full mx-auto">
         {categories.map((category) => (

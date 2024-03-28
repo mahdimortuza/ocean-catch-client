@@ -53,7 +53,11 @@ const TrendingProductsSection = async () => {
 
   return (
     <Container className="py-10">
-      <SectionTitle title="Shop our" highlight="Trending products" link="/" />
+      <SectionTitle
+        title="Shop our"
+        highlight="Trending products"
+        link="/products"
+      />
       <div className="pt-5">
         <DropdownMenu>
           <DropdownMenuTrigger className="border border-[#008ECC] px-2 py-1 flex gap-2">

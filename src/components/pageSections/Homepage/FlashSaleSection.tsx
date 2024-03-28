@@ -35,7 +35,7 @@ const FlashSaleSection = async () => {
       <SectionTitle
         title="Grab the best seafood on our"
         highlight="Flash Sell offer"
-        link="/"
+        link="/products"
       />
       <div className=" py-10 md:flex gap-5 items-center">
         <div className="w-[250px] mx-auto flex flex-col gap-1 px-1  text-center">

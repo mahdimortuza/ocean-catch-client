@@ -17,7 +17,7 @@ const AllProductsPage = async () => {
       <SectionTitle title="All Products of" highlight=" OceanCatch" link="" />
       <div className="flex">
         <ProductsSidebar />
-        <div className=" py-10 grid grid-cols-6  gap-2">
+        <div className=" py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5  gap-2 md:gap-3  lg:gap-4">
           {products.map((product: TProduct) => (
             <ProductCard key={product._id} item={product} />
           ))}

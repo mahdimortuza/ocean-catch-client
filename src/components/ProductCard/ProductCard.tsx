@@ -8,12 +8,12 @@ const ProductCard = ({ item }: { item: TProduct }) => {
   const { _id, title, image, price, ratings, offer } = item;
   return (
     <Link href={`/products/${_id}`}>
-      <div className="relative h-[300px] flex flex-col  justify-between border-[2px] border-[#D9D9D9]   hover:border-[#008ECC] rounded-xl">
+      <div className="relative  marker: flex flex-col  justify-between border-[2px] border-[#D9D9D9]   hover:border-[#008ECC] rounded-xl">
         <Image
           className="rounded-t-xl mx-auto"
           src={image}
           alt="image"
-          width={300}
+          width={250}
           height={100}
         />
         {offer ? (

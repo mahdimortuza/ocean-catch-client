@@ -53,7 +53,7 @@ const HeroSection = () => {
                 <p className="text-base mt-1 md:text-xl md:mt-1">
                   {item.description}
                 </p>
-                <Link href="/">
+                <Link href="/products">
                   <Button className="mt-8 bg-[#2ac291] hover:bg-[#1f8967] text-white">
                     See more
                   </Button>
