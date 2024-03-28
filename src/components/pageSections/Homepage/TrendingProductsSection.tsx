@@ -12,8 +12,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { Button } from "@/components/ui/button";
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
 import { TProduct } from "./FlashSaleSection";
 
 const TrendingProductsSection = async () => {
@@ -56,8 +56,8 @@ const TrendingProductsSection = async () => {
       <SectionTitle title="Shop our" highlight="Trending products" link="/" />
       <div className="pt-5">
         <DropdownMenu>
-          <DropdownMenuTrigger>
-            <Button>Filter by category</Button>
+          <DropdownMenuTrigger className="border border-[#008ECC] px-2 py-1 flex gap-2">
+            <span>Filter by category</span> <ChevronDown />
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             {categories.map((category) => (
