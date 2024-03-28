@@ -17,8 +17,8 @@ const Navbar = () => {
   const navItems = [
     { id: 1, text: "Home", link: "/" },
     { id: 2, text: "Shop", link: "/products" },
-    { id: 3, text: "FlashSale", link: "/" },
-    { id: 4, text: "About", link: "/" },
+    { id: 3, text: "FlashSale", link: "/flash-sale" },
+    { id: 4, text: "About", link: "/about" },
     { id: 5, text: "Contact", link: "/dashboard/all-products" },
   ];
 
@@ -26,8 +26,11 @@ const Navbar = () => {
     <header className="bg-[#F3F9FB] h-14 py-8">
       <div className=" z-10 h-full w-full max-w-[1300px] px-[15px] mx-auto flex justify-between items-center sticky top-0">
         {/* Logo */}
-        <h1 className="w-full text-3xl font-bold text-[#00df9a]">OceanCatch</h1>
-
+        <Link href="/">
+          <h1 className="w-full text-3xl font-bold text-[#00df9a]">
+            OceanCatch
+          </h1>
+        </Link>
         <div className="flex gap-4 mr-5 md:mr-16">
           <Link href="/">
             <User className="" />
