@@ -5,12 +5,9 @@ import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import { TProduct } from "@/components/pageSections/Homepage/FlashSaleSection";
 
 const AllProductsPage = async () => {
-  const res = await fetch(
-    "https://ocean-catch-server.vercel.app/api/v1/products/",
-    {
-      cache: "no-store",
-    }
-  );
+  const res = await fetch(`${process.env.base_api}/products/`, {
+    cache: "no-store",
+  });
   const { data: products } = await res.json();
 
   return (

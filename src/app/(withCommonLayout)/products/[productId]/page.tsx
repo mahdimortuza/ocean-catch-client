@@ -13,9 +13,7 @@ interface ProductId {
 }
 
 export const generateStaticParams = async () => {
-  const res = await fetch(
-    "https://ocean-catch-server.vercel.app/api/v1/products"
-  );
+  const res = await fetch(`${process.env.base_api}/products`);
   const { data: products } = await res.json();
 
   return products.slice(0, 10).map((product: TProduct) => ({
@@ -25,7 +23,7 @@ export const generateStaticParams = async () => {
 
 const ProductDetailPage = async ({ params }: ProductId) => {
   const res = await fetch(
-    `https://ocean-catch-server.vercel.app/api/v1/products/${params.productId}`
+    `${process.env.base_api}/products/${params.productId}`
   );
   const product = await res.json();
   const { data } = product;

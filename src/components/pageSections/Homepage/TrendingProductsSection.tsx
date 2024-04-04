@@ -17,14 +17,11 @@ import { ChevronDown } from "lucide-react";
 import { TProduct } from "./FlashSaleSection";
 
 const TrendingProductsSection = async () => {
-  const res = await fetch(
-    "https://ocean-catch-server.vercel.app/api/v1/products/",
-    {
-      next: {
-        revalidate: 30,
-      },
-    }
-  );
+  const res = await fetch(`${process.env.base_api}/products/`, {
+    next: {
+      revalidate: 30,
+    },
+  });
   const { data: products } = await res.json();
 
   const categories = [

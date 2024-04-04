@@ -25,14 +25,11 @@ export type TProduct = {
 };
 
 const FlashSaleSection = async () => {
-  const res = await fetch(
-    `https://ocean-catch-server.vercel.app/api/v1/products`,
-    {
-      next: {
-        revalidate: 30,
-      },
-    }
-  );
+  const res = await fetch(`${process.env.base_api}/products`, {
+    next: {
+      revalidate: 30,
+    },
+  });
   const { data: products } = await res.json();
   return (
     <Container className="py-10">
