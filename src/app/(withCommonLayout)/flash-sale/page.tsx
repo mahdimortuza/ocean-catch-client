@@ -5,8 +5,10 @@ import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import { TProduct } from "@/components/pageSections/Homepage/FlashSaleSection";
 
 const FlashSalePage = async () => {
-  const res = await fetch(`${process.env.base_api}products`, {
-    cache: "no-store",
+  const res = await fetch(`${process.env.base_api}/products`, {
+    next: {
+      revalidate: 30,
+    },
   });
   const { data: products } = await res.json();
   return (
