@@ -1,5 +1,4 @@
 "use client";
-import { Heart, ShoppingBag, User } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
@@ -19,7 +18,7 @@ const Navbar = () => {
     { id: 2, text: "Shop", link: "/products" },
     { id: 3, text: "FlashSale", link: "/flash-sale" },
     { id: 4, text: "About", link: "/about" },
-    { id: 5, text: "Contact", link: "/dashboard/all-products" },
+    { id: 5, text: "Dashboard", link: "/dashboard" },
   ];
 
   return (
@@ -31,17 +30,6 @@ const Navbar = () => {
             OceanCatch
           </h1>
         </Link>
-        <div className="flex gap-4 mr-5 md:mr-16">
-          <Link href="/">
-            <User className="" />
-          </Link>
-          <Link href="/">
-            <Heart />
-          </Link>
-          <Link href="/">
-            <ShoppingBag className="" />
-          </Link>
-        </div>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex">
