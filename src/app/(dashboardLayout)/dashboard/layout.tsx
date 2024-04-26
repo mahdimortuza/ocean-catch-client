@@ -2,6 +2,7 @@
 import {
   AppstoreAddOutlined,
   AppstoreOutlined,
+  BorderlessTableOutlined,
   DashboardOutlined,
   HomeOutlined,
   PoweroffOutlined,
@@ -27,6 +28,11 @@ const adminItems = [
     label: "Add Product",
     path: "/dashboard/add-product",
     icon: AppstoreAddOutlined,
+  },
+  {
+    label: "Orders",
+    path: "/dashboard/orders",
+    icon: BorderlessTableOutlined,
   },
   {
     label: "Home",
