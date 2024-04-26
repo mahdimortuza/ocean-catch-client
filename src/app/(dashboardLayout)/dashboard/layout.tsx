@@ -35,6 +35,11 @@ const adminItems = [
     icon: BorderlessTableOutlined,
   },
   {
+    label: "My Orders",
+    path: "/dashboard/my-orders",
+    icon: BorderlessTableOutlined,
+  },
+  {
     label: "Home",
     path: "/",
     icon: HomeOutlined,
