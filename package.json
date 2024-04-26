@@ -16,6 +16,7 @@
     "@reduxjs/toolkit": "^2.2.3",
     "@smastrom/react-rating": "^1.5.0",
     "@tanstack/react-table": "^8.15.0",
+    "antd": "^5.16.4",
     "axios": "^1.6.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",

@@ -1,36 +1,70 @@
-import { Home, ScanFace, SquareDashedMousePointer } from "lucide-react";
-import Link from "next/link";
+"use client";
+import {
+  UploadOutlined,
+  UserOutlined,
+  VideoCameraOutlined,
+} from "@ant-design/icons";
+import { Layout, Menu, theme } from "antd";
+import React from "react";
 
-const Sidebar = () => {
+const { Header, Content, Footer, Sider } = Layout;
+
+const items = [
+  UserOutlined,
+  VideoCameraOutlined,
+  UploadOutlined,
+  UserOutlined,
+].map((icon, index) => ({
+  key: String(index + 1),
+  icon: React.createElement(icon),
+  label: `nav ${index + 1}`,
+}));
+
+const App: React.FC = () => {
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
+
   return (
-    <div className="w-[250px] col-span-2 bg-slate-100 h-screen sticky top-0 left-0 overflow-auto p-4 lg:p-5 font-inter">
-      <ul>
-        <Link href="/dashboard">
-          <li
-            className="flex items-center 
-           gap-2 font-semibold px-4 py-2 rounded-lg hover:bg-red-500 hover:text-white"
+    <Layout>
+      <Sider
+        breakpoint="lg"
+        collapsedWidth="0"
+        onBreakpoint={(broken) => {
+          console.log(broken);
+        }}
+        onCollapse={(collapsed, type) => {
+          console.log(collapsed, type);
+        }}
+      >
+        <div className="demo-logo-vertical" />
+        <Menu
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={["4"]}
+          items={items}
+        />
+      </Sider>
+      <Layout>
+        <Header style={{ padding: 0, background: colorBgContainer }} />
+        <Content style={{ margin: "24px 16px 0" }}>
+          <div
+            style={{
+              padding: 24,
+              minHeight: 360,
+              background: colorBgContainer,
+              borderRadius: borderRadiusLG,
+            }}
           >
-            <ScanFace /> <span> Dashboard</span>
-          </li>
-        </Link>{" "}
-        <Link href="/dashboard/all-products">
-          <li
-            className="  mt-2 flex items-center 
-           gap-2 font-semibold px-4 py-2 rounded-lg hover:bg-red-500 hover:text-white"
-          >
-            <SquareDashedMousePointer /> <span> All Products</span>
-          </li>
-        </Link>{" "}
-        <Link href="/">
-          <li className=" mt-2 flex items-center gap-2 font-semibold px-4 py-2 rounded-lg hover:bg-red-500 hover:text-white">
-            {" "}
-            <Home />
-            <span>Home</span>
-          </li>
-        </Link>
-      </ul>
-    </div>
+            content
+          </div>
+        </Content>
+        <Footer style={{ textAlign: "center" }}>
+          Ant Design ©{new Date().getFullYear()} Created by Ant UED
+        </Footer>
+      </Layout>
+    </Layout>
   );
 };
 
-export default Sidebar;
+export default App;
