@@ -1,23 +1,26 @@
 "use client";
-import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
+import { AppstoreOutlined, DashboardOutlined } from "@ant-design/icons";
 import { Layout, Menu, theme } from "antd";
+import Link from "next/link";
 import React, { ReactNode } from "react";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Sider } = Layout;
 
 const items = [
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  UserOutlined,
-].map((icon, index) => ({
-  key: String(index + 1),
-  icon: React.createElement(icon),
-  label: `nav ${index + 1}`,
+  {
+    label: "Dashboard",
+    path: "/dashboard",
+    icon: DashboardOutlined,
+  },
+  {
+    label: "All Products",
+    path: "/dashboard/all-products",
+    icon: AppstoreOutlined,
+  },
+].map((item) => ({
+  key: String(item.path),
+  icon: React.createElement(item.icon),
+  label: <Link href={item.path}>{item.label}</Link>,
 }));
 
 const DashboardLayout = ({ children }: { children: ReactNode }) => {
@@ -37,7 +40,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
           console.log(collapsed, type);
         }}
       >
-        <div className="demo-logo-vertical" />
+        <div className="text-white">Logo</div>
         <Menu
           theme="dark"
           mode="inline"
@@ -59,9 +62,6 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
             {children}
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
-        </Footer>
       </Layout>
     </Layout>
   );
