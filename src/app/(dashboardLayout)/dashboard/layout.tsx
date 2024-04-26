@@ -1,12 +1,18 @@
 "use client";
-import { AppstoreOutlined, DashboardOutlined } from "@ant-design/icons";
-import { Layout, Menu, theme } from "antd";
+import {
+  AppstoreAddOutlined,
+  AppstoreOutlined,
+  DashboardOutlined,
+  HomeOutlined,
+  PoweroffOutlined,
+} from "@ant-design/icons";
+import { Button, Flex, Layout, Menu, Typography, theme } from "antd";
 import Link from "next/link";
 import React, { ReactNode } from "react";
 
 const { Header, Content, Sider } = Layout;
 
-const items = [
+const adminItems = [
   {
     label: "Dashboard",
     path: "/dashboard",
@@ -16,6 +22,16 @@ const items = [
     label: "All Products",
     path: "/dashboard/all-products",
     icon: AppstoreOutlined,
+  },
+  {
+    label: "Add Product",
+    path: "/dashboard/add-product",
+    icon: AppstoreAddOutlined,
+  },
+  {
+    label: "Home",
+    path: "/",
+    icon: HomeOutlined,
   },
 ].map((item) => ({
   key: String(item.path),
@@ -40,16 +56,31 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
           console.log(collapsed, type);
         }}
       >
-        <div className="text-white">Logo</div>
+        <div className="text-white text-center my-4 text-3xl">Ocean Catch</div>
         <Menu
           theme="dark"
           mode="inline"
           defaultSelectedKeys={["4"]}
-          items={items}
+          items={adminItems}
         />
       </Sider>
       <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }} />
+        <Header
+          style={{
+            padding: 0,
+            background: colorBgContainer,
+            paddingTop: "15px",
+          }}
+        >
+          <Flex wrap="wrap" gap="large">
+            <Flex style={{ marginLeft: "30px" }}>
+              <Typography>Profile photo</Typography>
+            </Flex>
+            <Button type="primary" danger icon={<PoweroffOutlined />}>
+              Logout
+            </Button>
+          </Flex>
+        </Header>
         <Content style={{ margin: "24px 16px 0" }}>
           <div
             style={{
