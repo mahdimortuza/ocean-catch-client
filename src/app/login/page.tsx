@@ -2,9 +2,12 @@
 import OCForm from "@/components/Forms/OCForm";
 import OCInput from "@/components/Forms/OCInput";
 import { Button, Row } from "antd";
+import { FieldValues } from "react-hook-form";
 
 const LoginPage = () => {
-  const handleLogin = () => {};
+  const handleLogin = (values: FieldValues) => {
+    console.log(values);
+  };
   return (
     <Row justify="center" align="middle" style={{ height: "100vh" }}>
       <OCForm onSubmit={handleLogin}>
