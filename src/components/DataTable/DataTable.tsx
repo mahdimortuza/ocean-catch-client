@@ -16,12 +16,12 @@ const DataTable = ({
       <TableCell>{index + 1}</TableCell>
       <TableCell>
         <Image
-          src={image}
+          src="https://raw.githubusercontent.com/mahdimortuza/ocean-catch-client/main/src/assets/images/Clams%20Risotto.jpg"
           alt="img"
           width={40}
           height={40}
           className="rounded-full"
-        />{" "}
+        />
       </TableCell>
       <TableCell>
         <h1 className="text-[18px] font-bold text-dark-blue">{title}</h1>

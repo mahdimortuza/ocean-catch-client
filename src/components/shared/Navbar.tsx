@@ -19,6 +19,7 @@ const Navbar = () => {
     { id: 3, text: "FlashSale", link: "/flash-sale" },
     { id: 4, text: "About", link: "/about" },
     { id: 5, text: "Dashboard", link: "/dashboard" },
+    { id: 6, text: "Login", link: "/login" },
   ];
 
   return (

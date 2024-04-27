@@ -20,12 +20,13 @@ const TrendingProductCard = ({
   productId,
   ratings,
 }: TProduct) => {
+  console.log(image);
   return (
     <Link href={`/products/${productId}`}>
       <div className="relative  flex flex-col  justify-between border-[2px] border-[#D9D9D9]   hover:border-[#008ECC] rounded-xl">
         <Image
           className="rounded-t-xl mx-auto"
-          src={image}
+          src="https://raw.githubusercontent.com/mahdipmortuza/ocean-catch-client/main/src/assets/images/Clams%20Risotto.jpg"
           alt="image"
           width={300}
           height={100}

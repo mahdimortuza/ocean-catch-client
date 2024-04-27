@@ -12,7 +12,7 @@ import Link from "next/link";
 import React, { ReactNode } from "react";
 
 const { Header, Content, Sider } = Layout;
-
+const role = "admin";
 const adminItems = [
   {
     label: "Dashboard",
@@ -34,6 +34,18 @@ const adminItems = [
     path: "/dashboard/orders",
     icon: BorderlessTableOutlined,
   },
+  {
+    label: "Home",
+    path: "/",
+    icon: HomeOutlined,
+  },
+].map((item) => ({
+  key: String(item.path),
+  icon: React.createElement(item.icon),
+  label: <Link href={item.path}>{item.label}</Link>,
+}));
+
+const userItems = [
   {
     label: "My Orders",
     path: "/dashboard/my-orders",
@@ -72,7 +84,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
           theme="dark"
           mode="inline"
           defaultSelectedKeys={["4"]}
-          items={adminItems}
+          items={role === "admin" ? adminItems : userItems}
         />
       </Sider>
       <Layout>
