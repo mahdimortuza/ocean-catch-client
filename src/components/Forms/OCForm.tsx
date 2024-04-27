@@ -16,7 +16,6 @@ const OCForm = ({ children, onSubmit }: TFormProps) => {
   const { handleSubmit } = methods;
 
   const submit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
     onSubmit(data);
   };
   return (

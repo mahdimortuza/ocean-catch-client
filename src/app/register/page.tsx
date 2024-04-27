@@ -18,9 +18,9 @@ const RegisterPage = () => {
     const toastId = toast.loading("Creating user");
 
     try {
-      const res = await createUser(values).unwrap();
+      await createUser(values).unwrap();
       // dispatch(res);
-      console.log(res);
+      // console.log(res);
       toast.success("User is created", { id: toastId, duration: 2000 });
       router.push("/login");
     } catch (error) {
