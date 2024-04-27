@@ -15,6 +15,7 @@ const DashboardAllProducts = async () => {
     },
   });
   const { data: products } = await res.json();
+  // console.log(products);
   return (
     <div className="px-10">
       <Table>
