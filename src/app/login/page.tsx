@@ -4,7 +4,8 @@ import OCInput from "@/components/Forms/OCInput";
 import { useLoginMutation } from "@/redux/api/authApi";
 import { storeUserInfo } from "@/services/actions/auth.services";
 import { verifyToken } from "@/utils/verifyToken";
-import { Button, Row } from "antd";
+import { Button, Flex, Row, Typography } from "antd";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FieldValues } from "react-hook-form";
 import { toast } from "sonner";
@@ -38,11 +39,21 @@ const LoginPage = () => {
   };
   return (
     <Row justify="center" align="middle" style={{ height: "100vh" }}>
-      <OCForm onSubmit={handleLogin}>
-        <OCInput type="text" name="email" label="Email" />
-        <OCInput type="password" name="password" label="Password" />
-        <Button htmlType="submit">Login</Button>
-      </OCForm>
+      <Flex vertical>
+        <Flex>
+          <OCForm onSubmit={handleLogin}>
+            <OCInput type="text" name="email" label="Email" />
+            <OCInput type="password" name="password" label="Password" />
+            <Button htmlType="submit">Login</Button>
+          </OCForm>
+        </Flex>
+
+        <Flex style={{ marginTop: "20px" }}>
+          <Typography>
+            New at OceanCatch? <Link href="/register">Register</Link>
+          </Typography>
+        </Flex>
+      </Flex>
     </Row>
   );
 };
