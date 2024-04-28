@@ -2,29 +2,38 @@
 import OCForm from "@/components/Forms/OCForm";
 import OCInput from "@/components/Forms/OCInput";
 import { useLoginMutation } from "@/redux/api/authApi";
-import { useAppDispatch } from "@/redux/hooks";
+import { storeUserInfo } from "@/services/actions/auth.services";
+import { verifyToken } from "@/utils/verifyToken";
 import { Button, Row } from "antd";
 import { useRouter } from "next/navigation";
 import { FieldValues } from "react-hook-form";
+import { toast } from "sonner";
 
 const LoginPage = () => {
   const router = useRouter();
-  const dispatch = useAppDispatch();
   const [login] = useLoginMutation();
 
   const handleLogin = async (values: FieldValues) => {
     // console.log(values);
+    const toastId = toast.loading("User logging in.");
     try {
-      const userInfo = {
-        email: values.email,
-        Password: values.Password,
-      };
+      const res = await login(values).unwrap();
 
-      const res = await login(userInfo).unwrap();
-      // const user = verifyToken(res.data.accessToken);
-      dispatch(res);
+      if (res?.accessToken) {
+        storeUserInfo({ accessToken: res?.accessToken });
+      }
+
+      const user = verifyToken(res.accessToken);
+      if (user) {
+        router.push("/dashboard/all-products");
+      }
+      toast.success("User logged in successfully", {
+        id: toastId,
+        duration: 2000,
+      });
     } catch (error) {
       console.log(error);
+      toast.error("Can not login user", { id: toastId, duration: 2000 });
     }
   };
   return (

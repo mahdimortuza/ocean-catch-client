@@ -1,9 +1,13 @@
+"use client";
+import { useGetSingeUserQuery } from "@/redux/api/userApi";
+
 const DashboardPage = () => {
+  const { data, isLoading } = useGetSingeUserQuery({});
+  console.log(data);
+
   return (
     <div className="flex justify-center items-center h-[85vh]">
-      <h1 className="text-3xl text-red-500 font-semibold">
-        Welcome to OceanCatch Dashboard
-      </h1>
+      <h1>Hi</h1>
     </div>
   );
 };

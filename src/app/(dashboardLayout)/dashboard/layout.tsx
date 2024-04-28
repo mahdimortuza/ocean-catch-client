@@ -1,4 +1,5 @@
 "use client";
+import { removeUser } from "@/services/actions/auth.services";
 import {
   AppstoreAddOutlined,
   AppstoreOutlined,
@@ -9,6 +10,7 @@ import {
 } from "@ant-design/icons";
 import { Button, Flex, Layout, Menu, Typography, theme } from "antd";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { ReactNode } from "react";
 
 const { Header, Content, Sider } = Layout;
@@ -63,9 +65,16 @@ const userItems = [
 }));
 
 const DashboardLayout = ({ children }: { children: ReactNode }) => {
+  const router = useRouter();
+
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+
+  const handleLogout = () => {
+    removeUser();
+    router.push("/");
+  };
 
   return (
     <Layout>
@@ -99,7 +108,12 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
             <Flex style={{ marginLeft: "30px" }}>
               <Typography>Profile photo</Typography>
             </Flex>
-            <Button type="primary" danger icon={<PoweroffOutlined />}>
+            <Button
+              onClick={handleLogout}
+              type="primary"
+              danger
+              icon={<PoweroffOutlined />}
+            >
               Logout
             </Button>
           </Flex>

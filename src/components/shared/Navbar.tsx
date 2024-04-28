@@ -1,27 +1,29 @@
 "use client";
+import {
+  getUserInfo,
+  isLoggedIn,
+  removeUser,
+} from "@/services/actions/auth.services";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 const Navbar = () => {
-  // State to manage the navbar's visibility
   const [nav, setNav] = useState(false);
+  const router = useRouter();
 
+  const userInfo = getUserInfo();
+  console.log(isLoggedIn());
   // Toggle function to handle the navbar's display
   const handleNav = () => {
     setNav(!nav);
   };
 
-  // Array containing navigation items
-  const navItems = [
-    { id: 1, text: "Home", link: "/" },
-    { id: 2, text: "Shop", link: "/products" },
-    { id: 3, text: "FlashSale", link: "/flash-sale" },
-    { id: 4, text: "About", link: "/about" },
-    { id: 5, text: "Dashboard", link: "/dashboard" },
-    { id: 6, text: "Login", link: "/login" },
-  ];
-
+  const handleLogout = () => {
+    removeUser();
+    router.refresh();
+  };
   return (
     <header className="bg-[#F3F9FB] h-14 py-8">
       <div className=" z-10 h-full w-full max-w-[1300px] px-[15px] mx-auto flex justify-between items-center sticky top-0">
@@ -34,14 +36,31 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex">
-          {navItems.map((item) => (
-            <li
-              key={item.id}
-              className="p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black"
-            >
-              <Link href={item.link}>{item.text}</Link>
+          <li className="px-2 py-1 hover:bg-[#00df9a] rounded-sm m-2 cursor-pointer duration-300 hover:text-white">
+            <Link href="/">Home</Link>
+          </li>
+          <li className="px-2 py-1 hover:bg-[#00df9a] rounded-sm m-2 cursor-pointer duration-300 hover:text-white">
+            <Link href="/products">Shop</Link>
+          </li>
+          <li className="px-2 py-1 hover:bg-[#00df9a] rounded-sm m-2 cursor-pointer duration-300 hover:text-white">
+            <Link href="/flash-sale">Flash Sale</Link>
+          </li>
+
+          {userInfo?.role && (
+            <li className="px-2 py-1 bg-red-500 text-white rounded-sm m-2 cursor-pointer duration-300 hover:text-white">
+              <Link href="/dashboard">Dashboard</Link>
             </li>
-          ))}
+          )}
+
+          {userInfo?.role ? (
+            <li className="px-2 py-1 bg-red-500 text-white rounded-sm m-2 cursor-pointer duration-300 hover:text-white">
+              <span onClick={handleLogout}>Logout</span>
+            </li>
+          ) : (
+            <li className="px-2 py-1 bg-[#00df9a] rounded-sm m-2 cursor-pointer duration-300 hover:text-white">
+              <Link href="/login">Login</Link>
+            </li>
+          )}
         </ul>
 
         {/* Mobile Navigation Icon */}
@@ -62,14 +81,22 @@ const Navbar = () => {
           </h1>
 
           {/* Mobile Navigation Items */}
-          {navItems.map((item) => (
-            <li
-              key={item.id}
-              className="p-4 border-b rounded-xl hover:bg-[#00df9a] duration-300 hover:text-black cursor-pointer border-gray-600"
-            >
-              <Link href={item.link}>{item.text}</Link>
-            </li>
-          ))}
+          {/*  */}
+          <li className="px-2 py-1 border-b rounded-sm hover:bg-[#00df9a] duration-300 hover:text-white cursor-pointer border-gray-600">
+            <Link href="/">Home</Link>
+          </li>
+          <li className="px-2 py-1 border-b rounded-sm hover:bg-[#00df9a] duration-300 hover:text-white cursor-pointer border-gray-600">
+            <Link href="/products">Shop</Link>
+          </li>
+          <li className="px-2 py-1 border-b rounded-sm hover:bg-[#00df9a] duration-300 hover:text-white cursor-pointer border-gray-600">
+            <Link href="/flash-sale">Flash Sale</Link>
+          </li>
+          <li className="px-2 py-1 border-b rounded-sm hover:bg-[#00df9a] duration-300 hover:text-white cursor-pointer border-gray-600">
+            <Link href="/dashboard">Dashboard</Link>
+          </li>
+          <li className="px-2 py-1 border-b rounded-sm hover:bg-[#00df9a] duration-300 hover:text-white cursor-pointer border-gray-600">
+            <Link href="/login">Login</Link>
+          </li>
         </ul>
       </div>
     </header>
