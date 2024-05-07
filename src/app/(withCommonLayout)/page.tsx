@@ -7,7 +7,7 @@ import TrendingProductsSection from "@/components/pageSections/Homepage/Trending
 export default function Home() {
   return (
     <>
-      <SubMenuSection />
+      <SubMenuSection line={true} />
       <HeroSection />
       <FlashSaleSection />
       <CategorySection />

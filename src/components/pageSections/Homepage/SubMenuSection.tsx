@@ -1,55 +1,30 @@
-import { Menu } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
 import Container from "@/components/Container";
 import { Separator } from "@/components/ui/separator";
+import { CircleUserRound, ShoppingBag } from "lucide-react";
+
 import Link from "next/link";
 
-const SubMenuSection = () => {
+const SubMenuSection = ({ line }: { line: boolean }) => {
   return (
     <div>
-      <Container className="flex justify-between items-center gap-2  my-2">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline">
-              <Menu /> <span className="ml-2">All Category</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56">
-            <DropdownMenuLabel>Categories</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <Link href="/">
-                <DropdownMenuItem>Salt water fish</DropdownMenuItem>
-              </Link>
-              <Link href="">
-                <DropdownMenuItem>Sweet water fish</DropdownMenuItem>
-              </Link>
-              <Link href="">
-                <DropdownMenuItem>Lobster and Shrimps</DropdownMenuItem>
-              </Link>
-              <Link href="">
-                <DropdownMenuItem>Squid and Crabs</DropdownMenuItem>
-              </Link>
-              <Link href="">
-                <DropdownMenuItem>Small & Big Fish</DropdownMenuItem>
-              </Link>
-              <Link href="">
-                <DropdownMenuItem>Caviar and Insects</DropdownMenuItem>
-              </Link>
-            </DropdownMenuGroup>
-          </DropdownMenuContent>
-        </DropdownMenu>
+      <Container className="flex justify-between items-center gap-5  my-2 py-2">
+        {/* submenu starts here  */}
+
+        <div className="flex gap-5 justify-between">
+          <Link href="/profile">
+            <div className="text-red-500">
+              <CircleUserRound className="mx-auto" />
+              <span className=" text-xs">Profile</span>
+            </div>
+          </Link>
+
+          <Link href="/cart">
+            <div className=" text-[#EB708B]">
+              <ShoppingBag className="mx-auto " />
+              <span className=" text-xs">Cart</span>
+            </div>
+          </Link>
+        </div>
 
         <div className="bg-[#F3F9FB] border border-transparent focus-within:border-blue-500 flex px-6 rounded-full h-9 lg:w-2/4mx-auto  ">
           <svg
@@ -67,7 +42,8 @@ const SubMenuSection = () => {
           />
         </div>
       </Container>
-      <Separator />
+      {/* <Separator /> */}
+      {line === true ? <Separator /> : ""}
     </div>
   );
 };

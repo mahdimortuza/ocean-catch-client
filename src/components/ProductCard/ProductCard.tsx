@@ -11,7 +11,9 @@ const ProductCard = ({ item }: { item: TProduct }) => {
       <div className="relative  marker: flex flex-col  justify-between border-[2px] border-[#D9D9D9]   hover:border-[#008ECC] rounded-xl">
         <Image
           className="rounded-t-xl mx-auto"
-          src={image}
+          src={
+            "https://raw.githubusercontent.com/mahdimortuza/ocean-catch-client/main/src/assets/images/scallops.jpg"
+          }
           alt="image"
           width={250}
           height={100}

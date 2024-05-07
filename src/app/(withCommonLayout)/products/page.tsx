@@ -3,6 +3,7 @@ import ProductCard from "@/components/ProductCard/ProductCard";
 import ProductsSidebar from "@/components/ProductsSidebar/ProductsSidebar";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import { TProduct } from "@/components/pageSections/Homepage/FlashSaleSection";
+import SubMenuSection from "@/components/pageSections/Homepage/SubMenuSection";
 
 const AllProductsPage = async () => {
   const res = await fetch(`${process.env.base_api}/products/`, {
@@ -12,6 +13,9 @@ const AllProductsPage = async () => {
 
   return (
     <Container className="py-10">
+      <SubMenuSection line={false} />
+
+      {/* All products are here  */}
       <SectionTitle title="All Products of" highlight=" OceanCatch" link="" />
       <div className="flex">
         <ProductsSidebar />
