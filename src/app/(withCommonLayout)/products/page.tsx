@@ -4,13 +4,33 @@ import ProductsSidebar from "@/components/ProductsSidebar/ProductsSidebar";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import { TProduct } from "@/components/pageSections/Homepage/FlashSaleSection";
 import SubMenuSection from "@/components/pageSections/Homepage/SubMenuSection";
+import axios from "axios";
+import queryString from "query-string";
 
-const AllProductsPage = async () => {
-  const res = await fetch(`${process.env.base_api}/products/`, {
-    cache: "no-store",
-  });
-  const { data: products } = await res.json();
+const getProducts = async (searchParams) => {
+  const urlParams = {
+    title: searchParams.keyword,
+  };
 
+  const searchQuery = queryString.stringify(urlParams);
+
+  console.log(searchQuery);
+
+  const { data } = await axios.get(
+    `${process.env.base_api}/products?${searchQuery}`
+  );
+  return data;
+};
+const AllProductsPage = async ({ searchParams }) => {
+  // const res = await fetch(`${process.env.base_api}/products/`, {
+  //   cache: "no-store",
+  // });
+  // const { data: products } = await res.json();
+
+  const allProducts = await getProducts(searchParams);
+
+  const { data: products } = allProducts;
+  // console.log(products);
   return (
     <Container className="py-10">
       <SubMenuSection line={false} />
@@ -20,7 +40,7 @@ const AllProductsPage = async () => {
       <div className="flex">
         <ProductsSidebar />
         <div className=" py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5  gap-2 md:gap-3  lg:gap-4">
-          {products.map((product: TProduct) => (
+          {products?.map((product: TProduct) => (
             <ProductCard key={product._id} item={product} />
           ))}
         </div>
