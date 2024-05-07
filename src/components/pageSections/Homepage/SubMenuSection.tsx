@@ -9,7 +9,6 @@ const SubMenuSection = ({ line }: { line: boolean }) => {
     <div>
       <Container className="flex justify-between items-center gap-5  my-2 py-2">
         {/* submenu starts here  */}
-
         <div className="flex gap-5 justify-between">
           <Link href="/profile">
             <div className="text-red-500">
