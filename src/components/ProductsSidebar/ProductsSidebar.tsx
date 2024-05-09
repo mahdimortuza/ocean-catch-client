@@ -1,12 +1,41 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+import { FieldValues } from "react-hook-form";
+
 const ProductsSidebar = () => {
+  const router = useRouter();
+
   let queryParams: any;
 
-  function checkHandler(checkBoxType, checkBoxValue) {
+  function handleClick(checkbox: FieldValues) {
     if (typeof window !== "undefined") {
       queryParams = new URLSearchParams(window.location.search);
     }
+    const checkboxes = document.getElementsByName(checkbox.name);
+    checkboxes.forEach((item) => {
+      if (item !== checkbox) item.checked = false;
+    });
 
+    if (checkbox.checked === false) {
+      //delete filter from query
+      queryParams.delete(checkbox.name);
+    } else {
+      // set filter on the query
+      if (queryParams.has(checkbox.name)) {
+        queryParams.set(checkbox.name, checkbox.value);
+      } else {
+        queryParams.append(checkbox.name, checkbox.value);
+      }
+      const path = window.location.pathname + "?" + queryParams.toString();
+      router.push(path);
+    }
+  }
+
+  function checkHandler(checkBoxType: string, checkBoxValue: string) {
     if (typeof window !== "undefined") {
+      queryParams = new URLSearchParams(window.location.search);
+
       const value = queryParams.get(checkBoxType);
       if (checkBoxValue === value) return true;
       return false;
@@ -58,11 +87,12 @@ const ProductsSidebar = () => {
               <input
                 name="category"
                 type="checkbox"
-                value="Electronics"
+                value="Sweet Water Fish"
                 className="h-4 w-4"
-                defaultChecked={checkHandler("category", "Electronics")}
+                defaultChecked={checkHandler("category", "Sweet Water Fish")}
+                onClick={(e) => handleClick(e.target)}
               />
-              <span className="ml-2 text-gray-500"> Electronics </span>
+              <span className="ml-2 text-gray-500"> Sweet Water Fish </span>
             </label>
           </li>
           <li>
@@ -70,11 +100,12 @@ const ProductsSidebar = () => {
               <input
                 name="category"
                 type="checkbox"
-                value="Laptops"
+                value="Salt Water Fish"
                 className="h-4 w-4"
-                defaultChecked={checkHandler("category", "Laptops")}
+                defaultChecked={checkHandler("category", "Salt Water Fish")}
+                onClick={(e) => handleClick(e.target)}
               />
-              <span className="ml-2 text-gray-500"> Laptops </span>
+              <span className="ml-2 text-gray-500"> Salt Water Fish </span>
             </label>
           </li>
           <li>
@@ -82,11 +113,12 @@ const ProductsSidebar = () => {
               <input
                 name="category"
                 type="checkbox"
-                value="Toys"
+                value="Caviar and Insects"
                 className="h-4 w-4"
-                defaultChecked={checkHandler("category", "Toys")}
+                defaultChecked={checkHandler("category", "Caviar and Insects")}
+                onClick={(e) => handleClick(e.target)}
               />
-              <span className="ml-2 text-gray-500"> Toys </span>
+              <span className="ml-2 text-gray-500"> Caviar and Insects </span>
             </label>
           </li>
           <li>
@@ -94,11 +126,12 @@ const ProductsSidebar = () => {
               <input
                 name="category"
                 type="checkbox"
-                value="Office"
+                value="Small & Big Fish"
                 className="h-4 w-4"
-                defaultChecked={checkHandler("category", "Office")}
+                defaultChecked={checkHandler("category", "Small & Big Fish")}
+                onClick={(e) => handleClick(e.target)}
               />
-              <span className="ml-2 text-gray-500"> Office </span>
+              <span className="ml-2 text-gray-500"> Small & Big Fish </span>
             </label>
           </li>
           <li>
@@ -106,11 +139,25 @@ const ProductsSidebar = () => {
               <input
                 name="category"
                 type="checkbox"
-                value="Beauty"
+                value="Squid and Crabs"
                 className="h-4 w-4"
-                defaultChecked={checkHandler("category", "Beauty")}
+                defaultChecked={checkHandler("category", "Squid and Crabs")}
+                onClick={(e) => handleClick(e.target)}
               />
-              <span className="ml-2 text-gray-500"> Beauty </span>
+              <span className="ml-2 text-gray-500"> Squid and Crabs </span>
+            </label>
+          </li>
+          <li>
+            <label className="flex items-center">
+              <input
+                name="category"
+                type="checkbox"
+                value="Lobster and Shrimps"
+                className="h-4 w-4"
+                defaultChecked={checkHandler("category", "Lobster and Shrimps")}
+                onClick={(e) => handleClick(e.target)}
+              />
+              <span className="ml-2 text-gray-500"> Lobster and Shrimps </span>
             </label>
           </li>
         </ul>
@@ -122,7 +169,3 @@ const ProductsSidebar = () => {
 };
 
 export default ProductsSidebar;
-
-// <div className="w-[250px] col-span-2 bg-slate-100 h-screen sticky top-0 left-0 overflow-auto p-4 lg:p-5">
-//   <h1>Products Filtering</h1>
-// </div>

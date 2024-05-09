@@ -9,32 +9,32 @@ const CategorySection = () => {
     {
       img: assets.categories.lobster,
       name: "Lobster and Shrimps",
-      link: "/",
+      link: "/products?category=Lobster and Shrimps",
     },
     {
       img: assets.categories.insects,
       name: "Caviar and Insects",
-      link: "/",
+      link: "/products?category=Caviar and Insects",
     },
     {
       img: assets.categories.sweet,
       name: "Sweet water fish",
-      link: "/",
+      link: "/products?category=Sweet Water Fish",
     },
     {
       img: assets.categories.slat,
       name: "Salt water fish",
-      link: "/",
+      link: "/products?category=Salt water fish",
     },
     {
       img: assets.categories.smallBig,
       name: "Small & Big Fish",
-      link: "/",
+      link: "/products?category=Small & Big Fish",
     },
     {
       img: assets.categories.squid,
       name: "Squid and Crabs",
-      link: "/",
+      link: "/products?category=Squid and Crabs",
     },
   ];
   return (

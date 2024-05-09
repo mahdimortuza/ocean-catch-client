@@ -6,15 +6,16 @@ import { CircleUserRound, ShoppingBag } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { FieldValues } from "react-hook-form";
 
 const SubMenuSection = ({ line }: { line: boolean }) => {
-  const [keyword, setKeyword] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
 
-  const submitHandler = (e) => {
+  const submitHandler = (e: FieldValues) => {
     e.preventDefault();
-    if (keyword) {
-      router.push(`/products/?keyword=${keyword}`);
+    if (searchTerm) {
+      router.push(`/products/?searchTerm=${searchTerm}`);
     } else {
       router.push("/");
     }
@@ -56,8 +57,8 @@ const SubMenuSection = ({ line }: { line: boolean }) => {
             type="text"
             placeholder="Search..."
             className="w-full outline-none bg-transparent text-gray-600 font-semibold text-[15px]"
-            value={keyword}
-            onChange={(e) => setKeyword(e.target.value)}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button className=" bg-[#EB708B] hover:bg-[#ff1043] transition-all duration-100 rounded-tr-full rounded-br-full px-2 text-white">
             Search

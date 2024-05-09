@@ -7,21 +7,26 @@ import SubMenuSection from "@/components/pageSections/Homepage/SubMenuSection";
 import axios from "axios";
 import queryString from "query-string";
 
-const getProducts = async (searchParams) => {
+const getProducts = async (searchParams: Record<string, unknown>) => {
   const urlParams = {
-    title: searchParams.keyword,
+    searchTerm: searchParams.searchTerm,
+    category: searchParams.category,
   };
 
   const searchQuery = queryString.stringify(urlParams);
 
-  console.log(searchQuery);
+  // console.log(searchQuery);
 
   const { data } = await axios.get(
     `${process.env.base_api}/products?${searchQuery}`
   );
   return data;
 };
-const AllProductsPage = async ({ searchParams }) => {
+const AllProductsPage = async ({
+  searchParams,
+}: {
+  searchParams: Record<string, unknown>;
+}) => {
   // const res = await fetch(`${process.env.base_api}/products/`, {
   //   cache: "no-store",
   // });
