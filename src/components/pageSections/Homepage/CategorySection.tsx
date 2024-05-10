@@ -29,7 +29,7 @@ const CategorySection = () => {
     {
       img: assets.categories.smallBig,
       name: "Small & Big Fish",
-      link: "/products?category=Small & Big Fish",
+      link: "/products?category=Small %26 Big Fish",
     },
     {
       img: assets.categories.squid,

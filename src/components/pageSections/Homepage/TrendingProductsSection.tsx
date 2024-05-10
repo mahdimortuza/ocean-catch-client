@@ -6,14 +6,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
-import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
-import { ChevronDown } from "lucide-react";
 import { TProduct } from "./FlashSaleSection";
 
 const TrendingProductsSection = async () => {
@@ -58,7 +51,7 @@ const TrendingProductsSection = async () => {
         highlight="Trending products"
         link="/products"
       />
-      <div className="pt-5">
+      {/* <div className="pt-5">
         <DropdownMenu>
           <DropdownMenuTrigger className="border border-[#008ECC] px-2 py-1 flex gap-2">
             <span>Filter by category</span> <ChevronDown />
@@ -71,7 +64,7 @@ const TrendingProductsSection = async () => {
             ))}{" "}
           </DropdownMenuContent>
         </DropdownMenu>
-      </div>
+      </div> */}
       <div className="py-10">
         <Carousel>
           <CarouselContent>
