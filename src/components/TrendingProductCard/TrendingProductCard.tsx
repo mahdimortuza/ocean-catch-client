@@ -1,3 +1,6 @@
+"use client";
+import { addToCart } from "@/redux/features/cart/cartSlice";
+import { useAppDispatch } from "@/redux/hooks";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { Plus } from "lucide-react";
@@ -13,14 +16,15 @@ type TProduct = {
   ratings: number;
 };
 
-const TrendingProductCard = ({
-  image,
-  offer,
-  title,
-  price,
-  productId,
-  ratings,
-}: TProduct) => {
+const TrendingProductCard = (product: TProduct) => {
+  const { image, offer, title, price, productId, ratings } = product;
+
+  const dispatch = useAppDispatch();
+
+  const handleAddToCart = (product: any) => {
+    dispatch(addToCart(product));
+  };
+
   return (
     <>
       <div className="relative  flex flex-col  justify-between border-[2px] border-[#D9D9D9]   hover:border-[#008ECC] rounded-xl">
@@ -49,7 +53,7 @@ const TrendingProductCard = ({
               <Rating style={{ maxWidth: 100 }} value={ratings} readOnly />
             </div>
           </Link>
-          <button className="mb-2">
+          <button onClick={() => handleAddToCart(product)} className="mb-2">
             <Plus className="text-white size-8 bg-red-500 rounded-full hover:rotate-90  transition-all duration-200" />
           </button>
         </div>

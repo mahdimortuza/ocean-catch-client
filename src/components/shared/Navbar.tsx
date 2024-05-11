@@ -1,9 +1,5 @@
 "use client";
-import {
-  getUserInfo,
-  isLoggedIn,
-  removeUser,
-} from "@/services/actions/auth.services";
+import { getUserInfo, removeUser } from "@/services/actions/auth.services";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -14,7 +10,7 @@ const Navbar = () => {
   const router = useRouter();
 
   const userInfo = getUserInfo();
-  console.log(isLoggedIn());
+  // console.log(isLoggedIn());
   // Toggle function to handle the navbar's display
   const handleNav = () => {
     setNav(!nav);

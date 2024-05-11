@@ -1,6 +1,7 @@
 "use client";
 import Container from "@/components/Container";
 import { Separator } from "@/components/ui/separator";
+import { useAppSelector } from "@/redux/hooks";
 import { CircleUserRound, ShoppingBag } from "lucide-react";
 
 import Link from "next/link";
@@ -9,6 +10,8 @@ import { useState } from "react";
 import { FieldValues } from "react-hook-form";
 
 const SubMenuSection = ({ line }: { line: boolean }) => {
+  const cartItem = useAppSelector((state) => state.cart);
+
   const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
 
@@ -33,10 +36,13 @@ const SubMenuSection = ({ line }: { line: boolean }) => {
             </div>
           </Link>
 
-          <Link href="/cart">
-            <div className=" text-[#EB708B]">
-              <ShoppingBag className="mx-auto " />
+          <Link href="/my-cart">
+            <div className="relative text-[#EB708B]">
+              <ShoppingBag className="mx-auto" />
               <span className=" text-xs">Cart</span>
+              <span className="absolute -top-1 -right-2 rounded-lg bg-red-500 text-[10px] px-[2px]  py-[1px] text-white">
+                20
+              </span>
             </div>
           </Link>
         </div>
