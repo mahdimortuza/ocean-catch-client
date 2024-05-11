@@ -1,6 +1,6 @@
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import { Heart } from "lucide-react";
+import { Plus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -50,7 +50,7 @@ const TrendingProductCard = ({
             </div>
           </Link>
           <button className="mb-2">
-            <Heart className="text-red-600" />
+            <Plus className="text-white size-8 bg-red-500 rounded-full hover:rotate-90  transition-all duration-200" />
           </button>
         </div>
       </div>
