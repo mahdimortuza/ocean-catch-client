@@ -23,6 +23,7 @@ const SubMenuSection = ({ line }: { line: boolean }) => {
       router.push("/");
     }
   };
+  const products = useAppSelector((store) => store.cart.products);
 
   return (
     <div>
@@ -40,8 +41,8 @@ const SubMenuSection = ({ line }: { line: boolean }) => {
             <div className="relative text-[#EB708B]">
               <ShoppingBag className="mx-auto" />
               <span className=" text-xs">Cart</span>
-              <span className="absolute -top-1 -right-2 rounded-lg bg-red-500 text-[10px] px-[2px]  py-[1px] text-white">
-                20
+              <span className="absolute -top-1 -right-1 rounded-lg bg-red-500 text-[10px] px-1  py-[1px] text-white">
+                {products.length}
               </span>
             </div>
           </Link>

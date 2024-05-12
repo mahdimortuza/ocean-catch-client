@@ -7,7 +7,6 @@ import { Tooltip } from "antd";
 import { Plus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { toast } from "sonner";
 
 type TProduct = {
   image: string;
@@ -25,9 +24,6 @@ const TrendingProductCard = (product: TProduct) => {
 
   const handleAddToCart = (product: any) => {
     dispatch(addToCart(product));
-    toast.success("Product added successfully!", {
-      duration: 2000,
-    });
   };
 
   return (

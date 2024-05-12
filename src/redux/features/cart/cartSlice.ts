@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "sonner";
 const initialState = {
   products: [],
   selectedItems: 0,
@@ -7,6 +8,8 @@ const initialState = {
   taxRate: 0.1,
   grandTotal: 0,
 };
+const toastId = toast.loading("User logging in.");
+
 const cartSlice = createSlice({
   name: "cart",
   initialState,
@@ -17,8 +20,30 @@ const cartSlice = createSlice({
       );
       if (!isExist) {
         state.products.push({ ...action.payload });
+        toast.success(`${action.payload.title} added successfully!`, {
+          id: toastId,
+          duration: 2000,
+        });
+      } else {
+        toast.error(`${action.payload.title} is added already!`, {
+          id: toastId,
+          duration: 2000,
+        });
       }
     },
+    //   updateQuantity: (state, action) => {
+    //     const products = state.products.map((product: TProduct) => {
+    //       if (product === action.payload._id) {
+    //         if (action.payload.type === "increment") {
+    //           product._id += 1;
+    //         }
+    //         if (action.payload.type === "decrement") {
+    //           product -= 1;
+    //         }
+    //       }
+    //       return product;
+    //     });
+    //   },
   },
 });
 export const { addToCart } = cartSlice.actions;

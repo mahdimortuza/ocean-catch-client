@@ -14,6 +14,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
+import ban from "../../../assets/banner/banner1.png";
 
 const HeroSection = () => {
   const bannerItem = [
@@ -37,13 +38,15 @@ const HeroSection = () => {
         plugins={[plugin.current]}
         onMouseEnter={plugin.current.stop}
         onMouseLeave={plugin.current.reset}
-        className="bg-[#30364f] rounded-xl mx-auto"
+        style={{
+          backgroundImage: `url('${ban}')`,
+        }}
       >
         <CarouselContent className="">
           {bannerItem.map((item) => (
             <CarouselItem
               key={item.id}
-              className=" md:flex md:justify-between items-center px-5 py-5 md:px-24 md:py-10"
+              // className=" md:flex md:justify-between items-center px-5 py-5 md:px-24 md:py-10"
             >
               <div className="text-white">
                 <h2 className="text-xl md:text-3xl">Sale Offer up to 80%</h2>
@@ -59,9 +62,15 @@ const HeroSection = () => {
                   </Button>
                 </Link>
               </div>
-              <Image
+              {/* <Image
                 className="w-[350px] md:w-[250px] mx-auto md:mx-0"
                 src={item.img}
+                alt="banner1"
+              /> */}
+
+              <Image
+                className="w-[350px] md:w-[250px] mx-auto md:mx-0"
+                src={ban}
                 alt="banner1"
               />
             </CarouselItem>
