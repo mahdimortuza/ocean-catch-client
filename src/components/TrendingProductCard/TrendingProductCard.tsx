@@ -3,9 +3,11 @@ import { addToCart } from "@/redux/features/cart/cartSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import { Tooltip } from "antd";
 import { Plus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { toast } from "sonner";
 
 type TProduct = {
   image: string;
@@ -23,6 +25,9 @@ const TrendingProductCard = (product: TProduct) => {
 
   const handleAddToCart = (product: any) => {
     dispatch(addToCart(product));
+    toast.success("Product added successfully!", {
+      duration: 2000,
+    });
   };
 
   return (
@@ -53,9 +58,11 @@ const TrendingProductCard = (product: TProduct) => {
               <Rating style={{ maxWidth: 100 }} value={ratings} readOnly />
             </div>
           </Link>
-          <button onClick={() => handleAddToCart(product)} className="mb-2">
-            <Plus className="text-white size-8 bg-red-500 rounded-full hover:rotate-90  transition-all duration-200" />
-          </button>
+          <Tooltip title="Add to cart">
+            <button onClick={() => handleAddToCart(product)} className="mb-2">
+              <Plus className="text-white size-8 bg-red-500 rounded-full hover:rotate-90  transition-all duration-200" />
+            </button>
+          </Tooltip>
         </div>
       </div>
     </>

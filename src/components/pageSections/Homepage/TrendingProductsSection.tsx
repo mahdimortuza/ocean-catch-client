@@ -17,33 +17,6 @@ const TrendingProductsSection = async () => {
   });
   const { data: products } = await res.json();
 
-  const categories = [
-    {
-      name: "Salt water fish",
-      key: "Salt water fish",
-    },
-    {
-      name: "Sweet water fish",
-      key: "Sweet water fish",
-    },
-    {
-      name: "Lobster and Shrimps",
-      key: "Lobster and Shrimps",
-    },
-    {
-      name: "Squid and Crabs",
-      key: "Squid and Crabs",
-    },
-    {
-      name: "Small & Big Fish",
-      key: "Small & Big Fish",
-    },
-    {
-      name: "Caviar and Insects",
-      key: "Caviar and Insects",
-    },
-  ];
-
   return (
     <Container className="py-10">
       <SectionTitle
@@ -51,20 +24,7 @@ const TrendingProductsSection = async () => {
         highlight="Trending products"
         link="/products"
       />
-      {/* <div className="pt-5">
-        <DropdownMenu>
-          <DropdownMenuTrigger className="border border-[#008ECC] px-2 py-1 flex gap-2">
-            <span>Filter by category</span> <ChevronDown />
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            {categories.map((category) => (
-              <DropdownMenuItem key={category.key}>
-                {category.name}
-              </DropdownMenuItem>
-            ))}{" "}
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div> */}
+
       <div className="py-10">
         <Carousel>
           <CarouselContent>

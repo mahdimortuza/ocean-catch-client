@@ -1,7 +1,7 @@
 import Container from "@/components/Container";
-import ProductCard from "@/components/ProductCard/ProductCard";
 import ProductsSidebar from "@/components/ProductsSidebar/ProductsSidebar";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import TrendingProductCard from "@/components/TrendingProductCard/TrendingProductCard";
 import { TProduct } from "@/components/pageSections/Homepage/FlashSaleSection";
 import SubMenuSection from "@/components/pageSections/Homepage/SubMenuSection";
 import axios from "axios";
@@ -44,9 +44,17 @@ const AllProductsPage = async ({
       <SectionTitle title="All Products of" highlight=" OceanCatch" link="" />
       <div className="flex">
         <ProductsSidebar />
-        <div className=" py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5  gap-2 md:gap-3  lg:gap-4">
+        <div className="py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-2 md:gap-3  lg:gap-4">
           {products?.map((product: TProduct) => (
-            <ProductCard key={product._id} item={product} />
+            <TrendingProductCard
+              key={product._id}
+              image={product.image}
+              title={product.title}
+              offer={product.offer}
+              price={product.price}
+              productId={product._id}
+              ratings={product.ratings}
+            />
           ))}
         </div>
       </div>

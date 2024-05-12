@@ -1,5 +1,5 @@
-import ProductCard from "@/components/ProductCard/ProductCard";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import TrendingProductCard from "@/components/TrendingProductCard/TrendingProductCard";
 import {
   Carousel,
   CarouselContent,
@@ -29,7 +29,15 @@ const ProductSuggestion = async ({ category }: { category: string }) => {
                   key={product._id}
                   className="basis-1/1 sm:basis-1/ md:basis-1/2 lg:basis-1/4"
                 >
-                  <ProductCard item={product} />
+                  <TrendingProductCard
+                    key={product._id}
+                    image={product.image}
+                    title={product.title}
+                    offer={product.offer}
+                    price={product.price}
+                    productId={product._id}
+                    ratings={product.ratings}
+                  />
                 </CarouselItem>
               ))}
           </CarouselContent>
