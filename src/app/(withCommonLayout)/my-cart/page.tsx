@@ -31,14 +31,16 @@ const MyCartPage = () => {
                   {selectedItems}
                 </p>
                 <p className="text-lg">
-                  <span className="font-bold">Total Price:</span> ${totalPrice}
+                  <span className="font-bold">Total Price:</span> $
+                  {totalPrice.toFixed(2)}
                 </p>
                 <p className="text-lg">
                   <span className="font-bold">Tax {taxRate * 100}%:</span> $
-                  {tax}
+                  {tax.toFixed(2)}
                 </p>
                 <p className="text-lg">
-                  <span className="font-bold">Grand Total</span> ${grandTotal}
+                  <span className="font-bold">Grand Total</span> $
+                  {grandTotal.toFixed(2)}
                 </p>
               </div>
             </div>
