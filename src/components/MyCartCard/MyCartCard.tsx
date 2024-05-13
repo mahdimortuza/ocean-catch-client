@@ -1,12 +1,15 @@
+import { useAppDispatch } from "@/redux/hooks";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import Image from "next/image";
 import { TProduct } from "../pageSections/Homepage/FlashSaleSection";
 
 const MyCartCard = ({ product }: { product: TProduct }) => {
   const { image, title, price } = product;
+  const dispatch = useAppDispatch();
 
   const handleCartUpdate = (type: string, id: string) => {
     const payload = { type, id };
+    dispatch(payload);
   };
   return (
     <div className="flex justify-between items-center my-5  w-[380px] border border-red-500 p-2 rounded-md   transition-all duration-200">

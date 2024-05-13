@@ -31,20 +31,20 @@ const cartSlice = createSlice({
         });
       }
     },
-    //   updateQuantity: (state, action) => {
-    //     const products = state.products.map((product: TProduct) => {
-    //       if (product === action.payload._id) {
-    //         if (action.payload.type === "increment") {
-    //           product._id += 1;
-    //         }
-    //         if (action.payload.type === "decrement") {
-    //           product -= 1;
-    //         }
-    //       }
-    //       return product;
-    //     });
-    //   },
+    updateQuantity: (state, action) => {
+      const products = state.products.map((product: any) => {
+        if (product._id === action.payload._id) {
+          if (action.payload.type === "increment") {
+            product.quantity += 1;
+          }
+          if (action.payload.type === "decrement") {
+            product.quantity -= 1;
+          }
+        }
+        return product;
+      });
+    },
   },
 });
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, updateQuantity } = cartSlice.actions;
 export default cartSlice.reducer;
