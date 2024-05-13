@@ -1,8 +1,5 @@
 "use client";
 import Container from "@/components/Container";
-import Autoplay from "embla-carousel-autoplay";
-
-import assets from "@/assets";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -11,10 +8,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Image from "next/image";
+import Autoplay from "embla-carousel-autoplay";
 import Link from "next/link";
 import { useRef } from "react";
-import ban from "../../../assets/banner/banner1.png";
+import banner1 from "../../../assets/banner/banner1.png";
+import banner2 from "../../../assets/banner/banner2.png";
 
 const HeroSection = () => {
   const bannerItem = [
@@ -22,13 +20,14 @@ const HeroSection = () => {
       id: 1,
       heading: "Best deal online on SeaFood",
       description: "We are the best grab your favorite menu today",
-      img: assets.banners.banner1,
+      img: banner1,
     },
     {
       id: 2,
       heading: "Get best SeaFood from us",
       description: "Dishes are the best grab your favorite menu today",
-      img: assets.banners.banner2,
+      // img: assets.banners.banner2,
+      img: banner2,
     },
   ];
   const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
@@ -38,15 +37,17 @@ const HeroSection = () => {
         plugins={[plugin.current]}
         onMouseEnter={plugin.current.stop}
         onMouseLeave={plugin.current.reset}
-        style={{
-          backgroundImage: `url('${ban}')`,
-        }}
       >
         <CarouselContent className="">
           {bannerItem.map((item) => (
             <CarouselItem
               key={item.id}
-              // className=" md:flex md:justify-between items-center px-5 py-5 md:px-24 md:py-10"
+              className=" md:flex md:justify-between items-center px-5 py-5 md:px-24 md:py-10"
+              style={{
+                backgroundImage: `url(${item.img.src})`,
+                width: "100%",
+                height: "100%",
+              }}
             >
               <div className="text-white">
                 <h2 className="text-xl md:text-3xl">Sale Offer up to 80%</h2>
@@ -62,17 +63,6 @@ const HeroSection = () => {
                   </Button>
                 </Link>
               </div>
-              {/* <Image
-                className="w-[350px] md:w-[250px] mx-auto md:mx-0"
-                src={item.img}
-                alt="banner1"
-              /> */}
-
-              <Image
-                className="w-[350px] md:w-[250px] mx-auto md:mx-0"
-                src={ban}
-                alt="banner1"
-              />
             </CarouselItem>
           ))}
         </CarouselContent>
