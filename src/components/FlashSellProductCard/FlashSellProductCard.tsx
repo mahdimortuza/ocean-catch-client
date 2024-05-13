@@ -5,17 +5,17 @@ interface TFlashSellProps {
   image: string;
   title: string;
   offer: number;
-  productId: string;
+  _id: string;
 }
 
 const FlashSellProductCard = ({
   image,
   title,
   offer,
-  productId,
+  _id,
 }: TFlashSellProps) => {
   return (
-    <Link href={`/products/${productId}`}>
+    <Link href={`/products/${_id}`}>
       <div
         className="flex flex-col border-[2px] border-[#D9D9D9]
        hover:border-[#008ECC] rounded-xl"

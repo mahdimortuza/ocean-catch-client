@@ -1,3 +1,4 @@
+import { TProduct } from "@/components/pageSections/Homepage/FlashSaleSection";
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "sonner";
 const initialState = {
@@ -16,7 +17,7 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state: any, action: any) => {
       const isExist = state.products.find(
-        (product: any) => product.productId === action.payload.productId
+        (product: any) => product._id === action.payload._id
       );
       if (!isExist) {
         state.products.push({ ...action.payload });
@@ -31,13 +32,12 @@ const cartSlice = createSlice({
         });
       }
     },
-    updateQuantity: (state, action) => {
-      const products = state.products.map((product: any) => {
+    updateQuantity: (state: any, action) => {
+      const products = state.products.map((product: TProduct) => {
         if (product._id === action.payload._id) {
           if (action.payload.type === "increment") {
             product.quantity += 1;
-          }
-          if (action.payload.type === "decrement") {
+          } else if (action.payload.type === "decrement") {
             product.quantity -= 1;
           }
         }

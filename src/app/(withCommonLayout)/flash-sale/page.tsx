@@ -32,7 +32,7 @@ const FlashSalePage = async () => {
                 image={product.image}
                 title={product.title}
                 offer={product.offer}
-                productId={product._id}
+                _id={product._id}
               />
             ))}
         </div>

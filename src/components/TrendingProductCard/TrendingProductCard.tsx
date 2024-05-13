@@ -13,12 +13,13 @@ type TProduct = {
   offer: number;
   title: string;
   price: number;
-  productId: string;
+  _id: string;
+  quantity: number;
   ratings: number;
 };
 
 const TrendingProductCard = (product: TProduct) => {
-  const { image, offer, title, price, productId, ratings } = product;
+  const { image, offer, title, price, _id, ratings } = product;
 
   const dispatch = useAppDispatch();
 
@@ -29,7 +30,7 @@ const TrendingProductCard = (product: TProduct) => {
   return (
     <>
       <div className="relative  flex flex-col  justify-between border-[2px] border-[#D9D9D9]   hover:border-[#008ECC] rounded-xl">
-        <Link href={`/products/${productId}`}>
+        <Link href={`/products/${_id}`}>
           <Image
             className="rounded-t-xl mx-auto"
             src={image}
@@ -47,7 +48,7 @@ const TrendingProductCard = (product: TProduct) => {
         </Link>
 
         <div className="  px-2 flex items-end justify-between">
-          <Link href={`/products/${productId}`}>
+          <Link href={`/products/${_id}`}>
             <div>
               <h3 className="text-xl font-[600] mt-3">${price}</h3>
               <h1>{title}</h1>

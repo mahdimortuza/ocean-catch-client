@@ -5,9 +5,9 @@ import Link from "next/link";
 import { TProduct } from "../pageSections/Homepage/FlashSaleSection";
 
 const ProductCard = ({ item }: { item: TProduct }) => {
-  const { _id: productId, title, image, price, ratings, offer } = item;
+  const { _id: _id, title, image, price, ratings, offer } = item;
   return (
-    <Link href={`/products/${productId}`}>
+    <Link href={`/products/${_id}`}>
       <div className="relative  marker: flex flex-col  justify-between border-[2px] border-[#D9D9D9]   hover:border-[#008ECC] rounded-xl">
         <Image
           className="rounded-t-xl mx-auto"

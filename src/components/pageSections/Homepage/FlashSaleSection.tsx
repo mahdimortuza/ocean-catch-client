@@ -22,6 +22,7 @@ export type TProduct = {
   updatedAt: Date;
   offer: number;
   __v: number;
+  quantity: number;
 };
 
 const FlashSaleSection = async () => {
@@ -58,7 +59,7 @@ const FlashSaleSection = async () => {
                       image={product.image}
                       title={product.title}
                       offer={product.offer}
-                      productId={product._id}
+                      _id={product._id}
                     />{" "}
                   </CarouselItem>
                 ))}
