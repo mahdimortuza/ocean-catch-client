@@ -1,4 +1,7 @@
-import { updateQuantity } from "@/redux/features/cart/cartSlice";
+import {
+  removeFromCart,
+  updateQuantity,
+} from "@/redux/features/cart/cartSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import Image from "next/image";
@@ -6,10 +9,15 @@ import { TProduct } from "../pageSections/Homepage/FlashSaleSection";
 
 const MyCartCard = ({ product }: { product: TProduct }) => {
   const { image, title, price, quantity } = product;
+
   const dispatch = useAppDispatch();
   const handleQuantity = (type: string, _id: string) => {
     const payload = { type, _id };
     dispatch(updateQuantity(payload));
+  };
+
+  const handleRemove = (_id: string) => {
+    dispatch(removeFromCart({ _id }));
   };
 
   return (
@@ -35,7 +43,7 @@ const MyCartCard = ({ product }: { product: TProduct }) => {
         </div>
       </div>
       <div className="mt-2 flex flex-col items-center">
-        <button className="">
+        <button onClick={() => handleRemove(product._id)} className="">
           <Trash2 className="text-red-500 transition-all  w-10 h-10 p-2 duration-200 rounded-full hover:text-white hover:bg-red-500" />
         </button>
         <div className="mt-2 flex gap-2">

@@ -8,7 +8,8 @@ import { CircleAlert, ScanLine, Trash2 } from "lucide-react";
 import Link from "next/link";
 
 const MyCartPage = () => {
-  const products = useAppSelector((store) => store.cart.products);
+  const { products, tax, taxRate, grandTotal, totalPrice, selectedItems } =
+    useAppSelector((store) => store.cart);
   return (
     <Container className="py-10">
       <SectionTitle title="Cart detail" highlight="summary" link="" />
@@ -25,10 +26,20 @@ const MyCartPage = () => {
                 Order Summary
               </h1>
               <div className="mx-5 mt-10 flex flex-col gap-4">
-                <p className="text-lg">Selected Items: 20</p>
-                <p className="text-lg">Total Price: $220</p>
-                <p className="text-lg">Tax: $5</p>
-                <p className="text-lg">Grand Total: $550</p>
+                <p className="text-lg">
+                  <span className="font-bold">Selected Items:</span>{" "}
+                  {selectedItems}
+                </p>
+                <p className="text-lg">
+                  <span className="font-bold">Total Price:</span> ${totalPrice}
+                </p>
+                <p className="text-lg">
+                  <span className="font-bold">Tax {taxRate * 100}%:</span> $
+                  {tax}
+                </p>
+                <p className="text-lg">
+                  <span className="font-bold">Grand Total</span> ${grandTotal}
+                </p>
               </div>
             </div>
 
