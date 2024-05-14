@@ -67,7 +67,7 @@ const SubMenuSection = ({ line }: { line: boolean }) => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button className=" bg-red-500 hover:bg-[#ff1043] transition-all duration-100 rounded-tr-full rounded-br-full px-2 text-white">
+          <button className=" bg-red-500 hover:bg-red-600 transition-all duration-100 rounded-tr-full rounded-br-full px-2 text-white">
             Search
           </button>
         </form>

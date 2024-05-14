@@ -21,7 +21,7 @@ const MyCartCard = ({ product }: { product: TProduct }) => {
   };
 
   return (
-    <div className="flex justify-between items-center my-5  w-[380px] border border-red-500 p-2 rounded-md   transition-all duration-200">
+    <div className="flex justify-between items-center my-5  w-[360px] md:w-[400px] border border-red-500 p-2 rounded-md   transition-all duration-200">
       <div className="">
         <div className="flex items-center gap-5">
           <Image

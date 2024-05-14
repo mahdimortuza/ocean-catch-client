@@ -42,7 +42,7 @@ const AllProductsPage = async ({
 
       {/* All products are here  */}
       <SectionTitle title="All Products of" highlight=" OceanCatch" link="" />
-      <div className="flex">
+      <div className="flex flex-col md:flex-row">
         <ProductsSidebar />
         <div className="py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-2 md:gap-3  lg:gap-4">
           {products?.map((product: TProduct) => (

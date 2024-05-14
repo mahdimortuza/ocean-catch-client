@@ -1,5 +1,7 @@
 "use client";
+import assets from "@/assets";
 import { getUserInfo, removeUser } from "@/services/actions/auth.services";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -21,24 +23,22 @@ const Navbar = () => {
     router.refresh();
   };
   return (
-    <header className="bg-[#F3F9FB] h-14 py-8">
+    <header className="bg-[#F3F9FB] h-14 py-10 my-1">
       <div className=" z-10 h-full w-full max-w-[1300px] px-[15px] mx-auto flex justify-between items-center sticky top-0">
         {/* Logo */}
         <Link href="/">
-          <h1 className="w-full text-3xl font-bold text-[#00df9a]">
-            OceanCatch
-          </h1>
+          <Image src={assets.logos.logo} height={50} width={80} alt="logo" />
         </Link>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex">
-          <li className="px-2 py-1 hover:bg-[#00df9a] rounded-sm m-2 cursor-pointer duration-300 hover:text-white">
+          <li className="px-2 py-1 hover:bg-red-500 rounded-sm m-2 cursor-pointer duration-300 hover:text-white">
             <Link href="/">Home</Link>
           </li>
-          <li className="px-2 py-1 hover:bg-[#00df9a] rounded-sm m-2 cursor-pointer duration-300 hover:text-white">
+          <li className="px-2 py-1 hover:bg-red-500 rounded-sm m-2 cursor-pointer duration-300 hover:text-white">
             <Link href="/products">Shop</Link>
           </li>
-          <li className="px-2 py-1 hover:bg-[#00df9a] rounded-sm m-2 cursor-pointer duration-300 hover:text-white">
+          <li className="px-2 py-1 hover:bg-red-500 rounded-sm m-2 cursor-pointer duration-300 hover:text-white">
             <Link href="/flash-sale">Flash Sale</Link>
           </li>
 
@@ -53,7 +53,7 @@ const Navbar = () => {
               <span onClick={handleLogout}>Logout</span>
             </li>
           ) : (
-            <li className="px-2 py-1 bg-[#00df9a] rounded-sm m-2 cursor-pointer duration-300 hover:text-white">
+            <li className="px-2 py-1 bg-red-500 hover:bg-red-600 rounded-sm m-2 cursor-pointer duration-300 text-white">
               <Link href="/login">Login</Link>
             </li>
           )}
@@ -72,25 +72,31 @@ const Navbar = () => {
           }
         >
           {/* Mobile Logo */}
-          <h1 className="w-full text-3xl font-bold text-[#00df9a] m-4">
-            OceanCatch
-          </h1>
+          <Link href="/">
+            <Image
+              className="ml-2"
+              src={assets.logos.logo}
+              height={50}
+              width={80}
+              alt="logo"
+            />
+          </Link>
 
           {/* Mobile Navigation Items */}
           {/*  */}
-          <li className="px-2 py-1 border-b rounded-sm hover:bg-[#00df9a] duration-300 hover:text-white cursor-pointer border-gray-600">
+          <li className="px-2 py-1 border-b rounded-sm hover:bg-red-500 duration-300 hover:text-white cursor-pointer border-gray-600">
             <Link href="/">Home</Link>
           </li>
-          <li className="px-2 py-1 border-b rounded-sm hover:bg-[#00df9a] duration-300 hover:text-white cursor-pointer border-gray-600">
+          <li className="px-2 py-1 border-b rounded-sm hover:bg-red-500 duration-300 hover:text-white cursor-pointer border-gray-600">
             <Link href="/products">Shop</Link>
           </li>
-          <li className="px-2 py-1 border-b rounded-sm hover:bg-[#00df9a] duration-300 hover:text-white cursor-pointer border-gray-600">
+          <li className="px-2 py-1 border-b rounded-sm hover:bg-red-500 duration-300 hover:text-white cursor-pointer border-gray-600">
             <Link href="/flash-sale">Flash Sale</Link>
           </li>
-          <li className="px-2 py-1 border-b rounded-sm hover:bg-[#00df9a] duration-300 hover:text-white cursor-pointer border-gray-600">
+          <li className="px-2 py-1 border-b rounded-sm hover:bg-red-500 duration-300 hover:text-white cursor-pointer border-gray-600">
             <Link href="/dashboard">Dashboard</Link>
           </li>
-          <li className="px-2 py-1 border-b rounded-sm hover:bg-[#00df9a] duration-300 hover:text-white cursor-pointer border-gray-600">
+          <li className="px-2 py-1 border-b rounded-sm hover:bg-red-500 duration-300 hover:text-white cursor-pointer border-gray-600">
             <Link href="/login">Login</Link>
           </li>
         </ul>

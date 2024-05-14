@@ -26,7 +26,7 @@ const MyCartPage = () => {
               <MyCartCard key={product._id} product={product} />
             ))}
           </div>
-          <div className="w-[380px] bg-[#FFDBA3] my-4 rounded-md flex flex-col justify-between">
+          <div className="w-[360px] md:w-[400px] bg-[#FFDBA3] my-4 rounded-md flex flex-col justify-between">
             <div>
               <h1 className="text-3xl font-semibold text-center my-2">
                 Order Summary
