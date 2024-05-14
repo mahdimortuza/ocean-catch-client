@@ -6,9 +6,9 @@ import "@smastrom/react-rating/style.css";
 import { Check, Combine, Truck, X } from "lucide-react";
 import Image from "next/image";
 
-interface _id {
+interface IProductId {
   params: {
-    _id: string;
+    productId: string;
   };
 }
 
@@ -16,13 +16,15 @@ export const generateStaticParams = async () => {
   const res = await fetch(`${process.env.base_api}/products`);
   const { data: products } = await res.json();
 
-  return products.slice(0, 10).map((product: TProduct) => ({
+  return products?.slice(0, 10)?.map((product: TProduct) => ({
     _id: product._id,
   }));
 };
 
-const ProductDetailPage = async ({ params }: _id) => {
-  const res = await fetch(`${process.env.base_api}/products/${params._id}`);
+const ProductDetailPage = async ({ params }: IProductId) => {
+  const res = await fetch(
+    `${process.env.base_api}/products/${params.productId}`
+  );
   const product = await res.json();
   const { data } = product;
   const {
@@ -37,6 +39,7 @@ const ProductDetailPage = async ({ params }: _id) => {
     optImage3,
     title,
   } = data;
+  // console.log(product);
   return (
     <Container className="py-10">
       <div className="md:flex justify-center p-5 gap-10 border border-x border-[#DEE2E7] rounded-lg">
