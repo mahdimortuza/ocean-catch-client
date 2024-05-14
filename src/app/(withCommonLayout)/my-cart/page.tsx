@@ -51,13 +51,17 @@ const MyCartPage = () => {
               </div>
             </div>
 
+            <Link href="/checkout">
+              <div className="flex flex-col mx-5  my-5 gap-3">
+                <button className="bg-yellow-500 hover:bg-yellow-600 text-white py-3 px-5 flex justify-between rounded-md">
+                  <span>Proceed checkout</span>
+                  <span>
+                    <ScanLine />
+                  </span>
+                </button>
+              </div>
+            </Link>
             <div className="flex flex-col mx-5  my-5 gap-3">
-              <button className="bg-yellow-500 hover:bg-yellow-600 text-white py-3 px-5 flex justify-between rounded-md">
-                <span>Proceed checkout</span>
-                <span>
-                  <ScanLine />
-                </span>
-              </button>
               <button
                 onClick={() => handleClearCart()}
                 className="bg-red-600 hover:bg-red-500 text-white py-3 px-5 flex justify-between rounded-md"
