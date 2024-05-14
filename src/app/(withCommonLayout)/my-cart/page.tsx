@@ -3,13 +3,19 @@ import Container from "@/components/Container";
 import MyCartCard from "@/components/MyCartCard/MyCartCard";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import { TProduct } from "@/components/pageSections/Homepage/FlashSaleSection";
-import { useAppSelector } from "@/redux/hooks";
+import { clearCart } from "@/redux/features/cart/cartSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { CircleAlert, ScanLine, Trash2 } from "lucide-react";
 import Link from "next/link";
 
 const MyCartPage = () => {
+  const dispatch = useAppDispatch();
   const { products, tax, taxRate, grandTotal, totalPrice, selectedItems } =
     useAppSelector((store) => store.cart);
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
   return (
     <Container className="py-10">
       <SectionTitle title="Cart detail" highlight="summary" link="" />
@@ -52,7 +58,10 @@ const MyCartPage = () => {
                   <ScanLine />
                 </span>
               </button>
-              <button className="bg-red-600 hover:bg-red-500 text-white py-3 px-5 flex justify-between rounded-md">
+              <button
+                onClick={() => handleClearCart()}
+                className="bg-red-600 hover:bg-red-500 text-white py-3 px-5 flex justify-between rounded-md"
+              >
                 <span>Clear Cart</span>
                 <span>
                   <Trash2 />

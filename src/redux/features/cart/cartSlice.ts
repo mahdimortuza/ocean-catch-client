@@ -61,6 +61,14 @@ const cartSlice = createSlice({
       state.tax = selectTax(state);
       state.grandTotal = selectGrandTotal(state);
     },
+
+    clearCart: (state) => {
+      state.products = [];
+      state.selectedItems = 0;
+      state.totalPrice = 0;
+      state.tax = 0;
+      state.grandTotal = 0;
+    },
   },
 });
 
@@ -81,5 +89,6 @@ export const selectGrandTotal = (state: any) => {
   return selectTotalPrice(state) + selectTotalPrice(state) * state.taxRate;
 };
 
-export const { addToCart, updateQuantity, removeFromCart } = cartSlice.actions;
+export const { addToCart, updateQuantity, removeFromCart, clearCart } =
+  cartSlice.actions;
 export default cartSlice.reducer;

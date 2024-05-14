@@ -12,7 +12,9 @@ const ProductsSidebar = () => {
     if (typeof window !== "undefined") {
       queryParams = new URLSearchParams(window.location.search);
     }
-    const checkboxes = document.getElementsByName(checkbox.name);
+    const checkboxes = document.getElementsByName(
+      checkbox.name
+    ) as NodeListOf<HTMLInputElement>;
     checkboxes.forEach((item) => {
       if (item !== checkbox) item.checked = false;
     });
