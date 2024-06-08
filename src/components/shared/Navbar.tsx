@@ -41,22 +41,6 @@ const Navbar = () => {
           <li className="px-2 py-1 hover:bg-red-500 rounded-sm m-2 cursor-pointer duration-300 hover:text-white">
             <Link href="/flash-sale">Flash Sale</Link>
           </li>
-
-          {userInfo?.role && (
-            <li className="px-2 py-1 bg-red-500 text-white rounded-sm m-2 cursor-pointer duration-300 hover:text-white">
-              <Link href="/dashboard">Dashboard</Link>
-            </li>
-          )}
-
-          {userInfo?.role ? (
-            <li className="px-2 py-1 bg-red-500 text-white rounded-sm m-2 cursor-pointer duration-300 hover:text-white">
-              <span onClick={handleLogout}>Logout</span>
-            </li>
-          ) : (
-            <li className="px-2 py-1 bg-red-500 hover:bg-red-600 rounded-sm m-2 cursor-pointer duration-300 text-white">
-              <Link href="/login">Login</Link>
-            </li>
-          )}
         </ul>
 
         {/* Mobile Navigation Icon */}
